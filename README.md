@@ -1,1 +1,1 @@
-# Fairytail-Mashup
+# Fairytale-Mashup
