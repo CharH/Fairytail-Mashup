@@ -8,6 +8,7 @@ package fairytalemashup;
 import fairytalemashup.model.Guidebook;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
+import fairytalemashup.model.ResourceGathering;
 
 /**
  *
@@ -52,8 +53,17 @@ public class FairytaleMashup {
         String locationInfo = locationTest.toString();
         System.out.println(locationInfo);
         
+    //ResourceGathering test
+        ResourceGathering gatheringTest = new ResourceGathering();
+    
+        gatheringTest.setRow(1);
+        gatheringTest.setColumn(3);
+        gatheringTest.setResourceType("Spell Ingredient");
+        gatheringTest.setResourceAmount(0);
+        gatheringTest.setRenewalTimer(60);
         
-        
+        String gatheringInfo = gatheringTest.toString();
+        System.out.println(gatheringInfo);
         
     }
     
