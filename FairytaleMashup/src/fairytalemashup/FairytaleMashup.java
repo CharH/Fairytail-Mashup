@@ -6,6 +6,8 @@
 package fairytalemashup;
 
 import fairytalemashup.model.Guidebook;
+import fairytalemashup.model.Location;
+import fairytalemashup.model.Map;
 
 /**
  *
@@ -17,7 +19,7 @@ public class FairytaleMashup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // testing things
+    // Guidebook test
         Guidebook guidebookThing = new Guidebook();
         
         guidebookThing.setFairytaleDescription("Girl gets new shoes and marries a Prince.");
@@ -29,6 +31,30 @@ public class FairytaleMashup {
         
         String guidebookInfo = guidebookThing.toString();
         System.out.println(guidebookInfo);
+    //Map test
+        Map mapTest = new Map();
+        
+        mapTest.setColumnCount(4);
+        mapTest.setRowCount(7);
+        
+        String mapInfo = mapTest.toString();
+        System.out.println(mapInfo);
+        
+    //Location test
+        Location locationTest = new Location();
+        
+        locationTest.setColumn(3);
+        locationTest.setRow(9);
+        locationTest.setVisited(false);
+        locationTest.setLocationName("Enchanted Forest");
+        locationTest.setLocationDescription("Lots and lots of trees plus a unicorn or two.");
+        
+        String locationInfo = locationTest.toString();
+        System.out.println(locationInfo);
+        
+        
+        
+        
     }
     
 }

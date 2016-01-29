@@ -22,8 +22,11 @@ public class Guidebook implements Serializable{
     private String locationDescription;
     private double itemsAvailable;
     
+    //default constructor function
+    public Guidebook() {
+    }
+    
     //getter and setter functions for instance variables
-
     public String getFairytaleDescription() {
         return fairytaleDescription;
     }
@@ -126,9 +129,5 @@ public class Guidebook implements Serializable{
     }
     
     
-    //default constructor function
-
-    public Guidebook() {
-    }
     
 }
