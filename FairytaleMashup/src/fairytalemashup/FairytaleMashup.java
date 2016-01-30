@@ -7,6 +7,7 @@ package fairytalemashup;
 
 import fairytalemashup.model.Battle;
 import fairytalemashup.model.Guidebook;
+import fairytalemashup.model.Inventory;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.PotionMaking;
@@ -112,6 +113,20 @@ public class FairytaleMashup {
         
         String battleInfo = battleTest.toString();
         System.out.println(battleInfo);
+    
+    //Inventory test
+        Inventory inventoryTest = new Inventory();
+        
+        inventoryTest.setAmountAvailable(5);
+        inventoryTest.setAmountRequired(7);
+        inventoryTest.setInventoryType("Resources");
+        inventoryTest.setRenewalTimer(2);
+        inventoryTest.setTimesUsed(3);
+        inventoryTest.setUsesAvailable(4);
+        
+        String inventoryInfo = inventoryTest.toString();
+        System.out.println(inventoryInfo);
+        
         
     }
     
