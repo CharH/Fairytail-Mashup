@@ -16,7 +16,9 @@ import fairytalemashup.model.Inventory;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
+import fairytalemashup.model.PotionMaking;
 import fairytalemashup.model.PotionsPack;
+import fairytalemashup.model.Quest;
 import fairytalemashup.model.ResourceGathering;
 import fairytalemashup.model.Resources;
 import fairytalemashup.model.SpellBook;
@@ -77,6 +79,62 @@ public class FairytaleMashup {
         
         String gatheringInfo = gatheringTest.toString();
         System.out.println(gatheringInfo);
+    //Spellcasting Test
+        Spellcasting spellTest = new Spellcasting();
+        
+        spellTest.setLocationDescription("Witches Cottage"); //inheritance check
+        spellTest.setSpellBook("Turn everything to gingerbread");
+        spellTest.setUserAction("Dance wildly around");
+        spellTest.setUserVoice("Yell");
+        
+        String spellInfo = spellTest.toString();
+        System.out.println(spellInfo);
+        
+    //Quests test
+        Quest questTest = new Quest();
+        
+        questTest.setQuestDescription("Slay a dragon!");
+        questTest.setQuestStatus("In progress");
+        questTest.setLocationName("Burned Castle"); //inheritance check
+        
+        String questInfo = questTest.toString();
+        System.out.println(questInfo);
+    
+    //PotionMaking test 
+        PotionMaking potionTest = new PotionMaking();
+        
+        potionTest.setVisited(true); //inheritance check
+        potionTest.setRecipes("Evil Curse");
+        potionTest.setIngredients("Lots of bad stuff");
+        potionTest.setSetTimer(30);
+        
+        String potionInfo = potionTest.toString();
+        System.out.println(potionInfo);
+        
+    //Battle test
+        Battle battleTest = new Battle();
+        
+        battleTest.setLocationName("Hobbiton"); //inheritance check
+        battleTest.setEnemyDescription("Weird little dude with ridiculously hairy feet.");
+        battleTest.setEnemyStats(44);
+        battleTest.setUserWeapons("Acorns, Rocks, and a relatively pointy stick.");
+        battleTest.setUserStats(22);
+        
+        String battleInfo = battleTest.toString();
+        System.out.println(battleInfo);
+    
+    //Inventory test
+        Inventory inventoryTest = new Inventory();
+        
+        inventoryTest.setAmountAvailable(5);
+        inventoryTest.setAmountRequired(7);
+        inventoryTest.setInventoryType("Resources");
+        inventoryTest.setRenewalTimer(2);
+        inventoryTest.setTimesUsed(3);
+        inventoryTest.setUsesAvailable(4);
+        
+        String inventoryInfo = inventoryTest.toString();
+        System.out.println(inventoryInfo);
         
     //Player Test
         Player playerOne = new Player();
