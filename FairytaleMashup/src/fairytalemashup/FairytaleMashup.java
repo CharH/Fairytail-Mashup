@@ -10,13 +10,18 @@ import fairytalemashup.model.Battle;
 
 
 import fairytalemashup.model.Actors;
+import fairytalemashup.model.Game;
 import fairytalemashup.model.Guidebook;
 import fairytalemashup.model.Inventory;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
+import fairytalemashup.model.PotionsPack;
 import fairytalemashup.model.ResourceGathering;
+import fairytalemashup.model.Resources;
+import fairytalemashup.model.SpellBook;
 import fairytalemashup.model.Spellcasting;
+import fairytalemashup.model.Weapons;
 
 /**
  *
@@ -96,10 +101,64 @@ public class FairytaleMashup {
         System.out.println(actorsInfo);
         
         
+    // Game Tester
+        Game gameTest = new Game();
+        
+        gameTest.setHighScore(100);
+        gameTest.setTotalTime(2.5);
+        
+        String gameInfo = gameTest.toString();
+        System.out.println(gameInfo);
         
         
+    //SpellBook Tester
+        SpellBook bookTest = new SpellBook();
+        
+        bookTest.setSpellType("Sleeping Spell");
+        bookTest.setPiecesCollected(3);
+        bookTest.setPiecesRequired(5);
+        bookTest.setRenewalTime(25);
+        bookTest.setDamages(50);
+        
+        String bookInfo = bookTest.toString();
+        System.out.println(bookInfo);
         
         
+    //Potions Pack Tester
+        PotionsPack testPotion = new PotionsPack();
+        
+        testPotion.setPotionType("Truth Potion");
+        testPotion.setPotionAmount(4);
+        testPotion.setAvailableUses(2);
+        testPotion.setAmountUsed(1);
+        testPotion.setDamages(15);
+        testPotion.setRenewalTime(10);
+        
+        String packInfo = testPotion.toString();
+        System.out.println(packInfo);
+        
+        
+     //Weapons Test
+        Weapons weaponTest = new Weapons();
+        
+        weaponTest.setWeaponType("Battle Ax");
+        weaponTest.setDamageInflicted(80);
+        weaponTest.setArmour("Breast Plate");
+        weaponTest.setProtection(55);
+        weaponTest.setWeaponArmed("Bow and Arrow");
+        
+        String weaponInfo = weaponTest.toString();
+        System.out.println(weaponInfo);
+     
+     //Resources Test
+        Resources testResource = new Resources();
+        
+        testResource.setResourceType("Pinecone");
+        testResource.setAvailableAmount(9);
+        
+        String resourceInfo = testResource.toString();
+        System.out.println(resourceInfo);
+ 
     }
     
 }
