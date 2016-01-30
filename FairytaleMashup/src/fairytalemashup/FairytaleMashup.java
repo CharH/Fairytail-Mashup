@@ -127,7 +127,7 @@ public class FairytaleMashup {
         String inventoryInfo = inventoryTest.toString();
         System.out.println(inventoryInfo);
         
-        
+    
     }
     
 }
