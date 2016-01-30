@@ -5,9 +5,14 @@
  */
 package fairytalemashup;
 
+
+
+
+import fairytalemashup.model.Actors;
 import fairytalemashup.model.Guidebook;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
+import fairytalemashup.model.Player;
 import fairytalemashup.model.ResourceGathering;
 
 /**
@@ -64,6 +69,33 @@ public class FairytaleMashup {
         
         String gatheringInfo = gatheringTest.toString();
         System.out.println(gatheringInfo);
+        
+    //Player Test
+        Player playerOne = new Player();
+        
+        playerOne.setName("Tink");
+        playerOne.setBestScore(7.00);
+        
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
+        
+    //Actors Test -- was titled as Charactes in UML Diagram, but java wouldn't accept Character title, changed to Actor
+        Actors actorsTest = new Actors();
+        
+        actorsTest.setName("Baba Yaga");
+        actorsTest.setDescription("old deformed and/or ferocious-looking woman that lives in a hut in the forest");
+        actorsTest.setAbilities("Witch, can fly, magic spells");
+        actorsTest.setHealth(85);
+        actorsTest.setRow(5);
+        actorsTest.setColumn(15);
+        
+        String actorsInfo = actorsTest.toString();
+        System.out.println(actorsInfo);
+        
+        
+        
+        
+        
         
     }
     
