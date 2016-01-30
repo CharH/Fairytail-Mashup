@@ -5,15 +5,18 @@
  */
 package fairytalemashup;
 
+import fairytalemashup.model.Battle;
 
 
 
 import fairytalemashup.model.Actors;
 import fairytalemashup.model.Guidebook;
+import fairytalemashup.model.Inventory;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
 import fairytalemashup.model.ResourceGathering;
+import fairytalemashup.model.Spellcasting;
 
 /**
  *
@@ -61,8 +64,8 @@ public class FairytaleMashup {
     //ResourceGathering test
         ResourceGathering gatheringTest = new ResourceGathering();
     
-        gatheringTest.setRow(1);
-        gatheringTest.setColumn(3);
+        gatheringTest.setRow(1); //inheritance check
+        gatheringTest.setColumn(3); //inheritance check
         gatheringTest.setResourceType("Spell Ingredient");
         gatheringTest.setResourceAmount(0);
         gatheringTest.setRenewalTimer(60);

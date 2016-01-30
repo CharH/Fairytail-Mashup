@@ -88,7 +88,7 @@ public class ResourceGathering extends Location implements Serializable {
 
     @Override
     public String toString() {
-        return "ResourceGathering{" + "resourceType=" + resourceType + ", resourceAmount=" + resourceAmount + ", renewalTimer=" + renewalTimer + '}';
+        return "ResourceGathering{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", resourceType=" + resourceType + ", resourceAmount=" + resourceAmount + ", renewalTimer=" + renewalTimer + '}';
     }
     
     

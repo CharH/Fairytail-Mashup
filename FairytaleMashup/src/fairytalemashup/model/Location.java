@@ -15,11 +15,11 @@ import java.util.Objects;
 public class Location implements Serializable {
     
     //class instance variables
-    private double row;
-    private double column;
-    private boolean visited;
-    private String locationName;
-    private String locationDescription;
+    protected double row;
+    protected double column;
+    protected boolean visited;
+    protected String locationName;
+    protected String locationDescription;
     
     //default constructor function
 
