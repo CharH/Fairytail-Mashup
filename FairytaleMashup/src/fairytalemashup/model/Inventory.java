@@ -15,12 +15,12 @@ import java.util.Objects;
 public class Inventory implements Serializable{
     
     //class instance variables
-    private String inventoryType;
-    private double amountAvailable;
-    private double amountRequired;
-    private double usesAvailable;
-    private double timesUsed;
-    private double renewalTimer;
+    protected String inventoryType;
+    protected double amountAvailable;
+    protected double amountRequired;
+    protected double usesAvailable;
+    protected double timesUsed;
+    protected double renewalTimer;
     
     //default constructor function
 
