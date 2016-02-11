@@ -21,7 +21,7 @@ import fairytalemashup.model.PotionsPack;
 import fairytalemashup.model.Quest;
 import fairytalemashup.model.ResourceGathering;
 import fairytalemashup.model.Resources;
-import fairytalemashup.model.SpellBook;
+import fairytalemashup.model.Spells;
 import fairytalemashup.model.Spellcasting;
 import fairytalemashup.model.Weapons;
 
@@ -170,7 +170,7 @@ public class FairytaleMashup {
         
         
     //SpellBook Tester
-        SpellBook bookTest = new SpellBook();
+        Spells bookTest = new Spells();
         
         bookTest.setSpellType("Sleeping Spell");
         bookTest.setPiecesCollected(3);
