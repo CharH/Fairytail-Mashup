@@ -29,21 +29,79 @@ public class MagicMakingControlTest {
     }
 
     /**
-     * Test of castSpell method, of class MagicMakingControl.
+     * Test case #1
      */
     @Test
     public void testCastSpell() {
-        System.out.println("castSpell");
+        System.out.println("Test case #1");
         double action = 2;
         double tone = 3;
-        Spells testSpell = new Spells();
-        testSpell.setDamages(25);
+        Spells testSpell = new Spells(); //create new spells object instance
+        testSpell.setDamages(25); //set spell damage attribute
         MagicMakingControl instance = new MagicMakingControl();
         double expResult = 31;
         double result = instance.castSpell(action, tone, testSpell);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    /**
+     * Test case #2
+     */
+        System.out.println("Test case #2");
+        action = 0;
+        tone = 2;
+        testSpell.setDamages(15); //set spell damage attribute
+        expResult = -1;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
+    /**
+     * Test case #3
+     */
+        System.out.println("Test case #3");
+        action = 3;
+        tone = 6;
+        testSpell.setDamages(50); //set spell damage attribute
+        expResult = -1;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
+        /**
+     * Test case #4
+     */
+        System.out.println("Test case #4");
+        action = 2;
+        tone = 3;
+        testSpell.setDamages(-3); //set spell damage attribute
+        expResult = -1;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
+        /**
+     * Test case #5
+     */
+        System.out.println("Test case #5");
+        action = 1;
+        tone = 3;
+        testSpell.setDamages(5); //set spell damage attribute
+        expResult = 8;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
+        /**
+     * Test case #6
+     */
+        System.out.println("Test case #6");
+        action = 2;
+        tone = 2;
+        testSpell.setDamages(10); //set spell damage attribute
+        expResult = 14;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
+        /**
+     * Test case #7
+     */
+        System.out.println("Test case #7");
+        action = 3;
+        tone = 1;
+        testSpell.setDamages(16); //set spell damage attribute
+        expResult = 19;
+        result = instance.castSpell(action, tone, testSpell);
+        assertEquals(expResult, result, 0.0);
     }
     
 }
