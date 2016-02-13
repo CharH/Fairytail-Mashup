@@ -17,11 +17,12 @@ public class Player implements Serializable {
     //class instance variables
     private String name;
     private double bestScore ;
+    private int playerHealth;
+    private int playerBaseHealth;
 
     public Player() {
     }
 
-        
     public String getName() {
         return name;
     }
@@ -38,11 +39,29 @@ public class Player implements Serializable {
         this.bestScore = bestScore;
     }
 
+    public int getPlayerHealth() {
+        return playerHealth;
+    }
+
+    public void setPlayerHealth(int playerHealth) {
+        this.playerHealth = playerHealth;
+    }
+
+    public int getPlayerBaseHealth() {
+        return playerBaseHealth;
+    }
+
+    public void setPlayerBaseHealth(int playerBaseHealth) {
+        this.playerBaseHealth = playerBaseHealth;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.bestScore) ^ (Double.doubleToLongBits(this.bestScore) >>> 32));
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.bestScore) ^ (Double.doubleToLongBits(this.bestScore) >>> 32));
+        hash = 37 * hash + this.playerHealth;
+        hash = 37 * hash + this.playerBaseHealth;
         return hash;
     }
 
@@ -61,6 +80,12 @@ public class Player implements Serializable {
         if (Double.doubleToLongBits(this.bestScore) != Double.doubleToLongBits(other.bestScore)) {
             return false;
         }
+        if (this.playerHealth != other.playerHealth) {
+            return false;
+        }
+        if (this.playerBaseHealth != other.playerBaseHealth) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -69,8 +94,15 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", bestScore=" + bestScore + '}';
+        return "Player{" + "name=" + name + ", bestScore=" + bestScore + ", playerHealth=" + playerHealth + ", playerBaseHealth=" + playerBaseHealth + '}';
     }
+
+   
+    
+
+   
+
+    
     
     
     
