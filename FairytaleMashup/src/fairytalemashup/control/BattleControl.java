@@ -34,5 +34,19 @@ public class BattleControl {
              
     }
 	
-
+    public int calcBattleResult (int playerAttack, int playerDefense, int enemyAttack){
+        if (playerAttack < 0){
+            return 000;
+        }
+        if (playerDefense < 0 || playerDefense > 5){
+            return 000;
+        }
+        if (enemyAttack < 0){
+            return 000;
+        }
+        
+        int battleResult = (playerAttack * playerDefense)- enemyAttack;
+        
+        return battleResult;
+    }
 }
