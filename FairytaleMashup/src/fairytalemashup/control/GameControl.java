@@ -5,10 +5,17 @@
  */
 package fairytalemashup.control;
 
+import fairytalemashup.model.Player;
+
 /**
  *
  * @author KatieSimons
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        Player player = ProgramControl.createPlayer(playersName);
+        return player ;
+    }
     
 }
