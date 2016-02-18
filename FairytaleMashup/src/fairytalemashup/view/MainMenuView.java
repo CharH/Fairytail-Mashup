@@ -14,16 +14,16 @@ import java.util.Scanner;
 public class MainMenuView {
     
     private final String MENU = "\n"
-            +"\n------------------------------------------"
-            +"\n| Main Menu                              |"
-            +"\n------------------------------------------"
-            +"\nN - Start a New Game"
-            +"\nG - Retrieve Saved Game"
-            +"\nH - Get Help"
-            +"\nS - Save Game"
-            +"\nE - Exit"
-            +"\n------------------------------------------";
-    
+            + "\n------------------------------------------"
+            + "\n| Main Menu                              |"
+            + "\n------------------------------------------"
+            + "\nN - Start a New Game"
+            + "\nG - Retrieve Saved Game"
+            + "\nH - Get Help"
+            + "\nS - Save Game"
+            + "\nE - Exit"
+            + "\n------------------------------------------";
+
 
     public void displayMenu() {
         char selection = ' ';
@@ -63,10 +63,6 @@ public class MainMenuView {
         }
         return value; //
     }
-    
-     
-     //if (value.toUpperCase().equals("E")) //user wants to exit game.
-    //            return; //exit the game
 
     public void doAction(char selection) {
         switch (selection) {
