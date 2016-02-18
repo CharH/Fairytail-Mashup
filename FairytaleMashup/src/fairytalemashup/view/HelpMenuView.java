@@ -5,32 +5,30 @@
  */
 package fairytalemashup.view;
 
-import fairytalemashup.FairytaleMashup;
-import fairytalemashup.control.GameControl;
 import java.util.Scanner;
 
 /**
  *
  * @author charlottehuyett
  */
-public class MainMenuView {
-    
-    private final String MENU = "\n"
+class HelpMenuView {
+ 
+    private final String HELP_MENU = "\n"
             + "\n------------------------------------------"
-            + "\n| Main Menu                              |"
+            + "\n| Help Menu                              |"
             + "\n------------------------------------------"
-            + "\nN - Start a New Game"
-            + "\nG - Retrieve Saved Game"
-            + "\nH - Get Help"
-            + "\nS - Save Game"
-            + "\nE - Exit"
+            + "\nW - What is my goal?"
+            + "\nH - How to Play"
+            + "\nP - Potion Making"
+            + "\nS - Spellcasting"
+            + "\nE - Exit Menu"
             + "\n------------------------------------------";
 
 
     public void displayMenu() {
         char selection = ' ';
         do {
-               System.out.println(MENU); //display the main menu
+               System.out.println(HELP_MENU); //display the main menu
                String input = this.getInput(); //get user's selection
                selection = input.charAt(0); //get first character of string
                
@@ -68,19 +66,19 @@ public class MainMenuView {
 
     public void doAction(char selection) {
         switch (selection) {
-            case 'N': //create and start a new game
-                this.startNewGame();
+            case 'W': //What is the player's current goal?
+                this.displayPlayerQuest();
                 break;
-            case 'G': //start saved game
-                this.startExistingGame();
+            case 'H': //How to play
+                this.displayHowToPlay();
                 break;
-            case 'H': //display help menu
-                this.displayHelpMenu();
+            case 'P': //Potion making info
+                this.displayPotionInfo();
                 break;
-            case 'S': //save current game
-                this.saveGame();
+            case 'S': //spellcasting info
+                this.displaySpellInfo();
                 break;
-            case 'E': //exit the game
+            case 'E': //exit the menu
                 return;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -88,26 +86,22 @@ public class MainMenuView {
         }
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(FairytaleMashup.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void displayPlayerQuest() {
+        System.out.println("\n***displayPlayerQuest stub function called.***");
     }
 
-    private void startExistingGame() {
-        System.out.println("***startExistingGame function called");
+    private void displayHowToPlay() {
+        System.out.println("\n***displayHowToPlay stub function called.***");
     }
 
-    private void displayHelpMenu() {
-        //create MainMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        //display the main menu view
-        helpMenuView.displayMenu();
+    private void displayPotionInfo() {
+        System.out.println("\n***displayPotionInfo stub function called.***");
     }
 
-    private void saveGame() {
-        System.out.println("***saveGame function called");
+    private void displaySpellInfo() {
+        System.out.println("\n***displaySpellInfo stub function called.***");
     }
+
+
+    
 }
