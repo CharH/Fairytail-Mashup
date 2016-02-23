@@ -15,4 +15,8 @@ class GameMenuView {
         System.out.println("\n***displayMenu stub function called.***");
     }
     
+    void displayInventoryMenu(){
+        System.out.println("\n***displayInventoryMenu stub function called.***");
+    }
+    
 }
