@@ -24,37 +24,43 @@ class MapView {
                 display ???
         return string
          */
-        int locationNumber = 1;
-        String mapList = null;
+        int i = 1;
+        String mapList = null; // string that will contain the map
         mapList = "\n";
-        for (int i = 0; i < 6; i++) {
-            mapList += "[  " + i + "  ] ";
+        for (int j = 0; i < 6; j++) { //for loop builds coordinates across top of map
+            mapList += "[  " + j + "  ] ";
 
         }
-        while (locationNumber < 26) {
+        while (i < 26) { //builds 25 locations for map, plus coordinates down side of map.
 
+            //***********************************
+            /*Block of code below was needed in order to run function, but
+            will need to change to pull from actual locations instead of blank
+            ones generated here.*/
+            //***********************************
             Location location = new Location();
-            location.setLocationName("Location#" + locationNumber);
+            location.setLocationName("Location#" + i);
+            //***********************************
 
-            if ((locationNumber == 1)) {
-                mapList += "\n[  " + locationNumber + "  ] ";
+            if ((i == 1)) { //creates first row and row coordinate.
+                mapList += "\n[  " + i + "  ] ";
             }
 
-            if (!location.isVisited()) {
+            if (!location.isVisited()) { //hides name if user hasn't visted the location yet
                 mapList += "[ ??? ] ";
-            } else {
+            } else { //displays name if user has visted the location
                 mapList += "[ " + location.getLocationName() + " ] ";
             }
 
-            if ((locationNumber == 5)) {
-                mapList += "\n[  " + locationNumber + "  ] ";
-            } else if ((locationNumber == 10) || (locationNumber == 15) || (locationNumber == 20)) {
-                mapList += "\n[  " + locationNumber + " ] ";
+            if ((i == 5)) { //breaks string into more rows and adds row coordinates.
+                mapList += "\n[  " + i + "  ] ";
+            } else if ((i == 10) || (i == 15) || (i == 20)) {
+                mapList += "\n[  " + i + " ] ";
             }
 
-            locationNumber++;
+            i++;
         }
-        return mapList;
+        return mapList; //return string with map info.
     }
 
     public void displayMapView() {
