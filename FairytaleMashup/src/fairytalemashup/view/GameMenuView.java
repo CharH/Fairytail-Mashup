@@ -17,7 +17,8 @@ class GameMenuView {
             + "\n------------------------------------------"
             + "\n| Game Menu                              |"
             + "\n------------------------------------------"
-            + "\nM - View Map"
+            + "\nV - View Map"
+            + "\nM - Move to New Location"
             + "\nE - Explore Location"
             + "\nI - View Inventory"
             + "\nR - Read Storybook"
@@ -71,8 +72,11 @@ class GameMenuView {
     }
     public void doAction(char selection) {
         switch (selection) {
-            case 'M': //view map
+            case 'V': //view map
                 this.viewMap();
+                break;
+            case 'M': //move player to new location
+                this.movePlayer();
                 break;
             case 'E': //explore location
                 this.exploreLocation();
@@ -107,7 +111,14 @@ class GameMenuView {
     }
 
     private void viewMap() {
-        System.out.println("***viewMap function called");
+        //create MapView object
+        MapView mapView = new MapView();
+        //display map view
+        mapView.displayMapView();
+    }
+
+    private void movePlayer() {
+        System.out.println("***movePlayer function called");
     }
 
     private void exploreLocation() {
@@ -117,8 +128,8 @@ class GameMenuView {
     private void displayInventoryMenu() {
         //create InventoryMenuView object
         InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        
-        //display the main menu view
+
+        //display the inventory menu view
         inventoryMenuView.displayInventoryMenu();
     }
 
@@ -149,14 +160,11 @@ class GameMenuView {
         //display the help menu view
         helpMenuView.displayMenu();
     }
+
+   
     
 
    
 }
 
 
-//[ ??? ][ ??? ][ ??? ][ ??? ][ ??? ]
-//[ ??? ][ ??? ][ ??? ][ ??? ][ ??? ]
-//[ ??? ][ ??? ][ ??? ][ ??? ][ ??? ]
-//[ ??? ][ ??? ][ ??? ][ ??? ][ ??? ]
-//[ ??? ][ ??? ][ ??? ][ ??? ][ ??? ]

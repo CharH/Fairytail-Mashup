@@ -6,6 +6,7 @@
 package fairytalemashup.control;
 
 import fairytalemashup.FairytaleMashup;
+import fairytalemashup.model.Location;
 import fairytalemashup.model.Player;
 
 /**
@@ -26,5 +27,7 @@ class ProgramControl {
         
         return player;
     }
+
+   
     
 }
