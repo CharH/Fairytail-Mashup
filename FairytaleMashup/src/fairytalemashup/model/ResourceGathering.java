@@ -13,19 +13,17 @@ import java.util.Objects;
  * @author charlottehuyett
  */
 public class ResourceGathering extends Location implements Serializable {
-    
+
     //class instance variables
     private String resourceType;
     private double resourceAmount;
     private double renewalTimer;
-    
-    //default constructor function
 
+    //default constructor function
     public ResourceGathering() {
     }
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public String getResourceType() {
         return resourceType;
     }
@@ -37,7 +35,7 @@ public class ResourceGathering extends Location implements Serializable {
     public double getResourceAmount() {
         return resourceAmount;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -48,7 +46,7 @@ public class ResourceGathering extends Location implements Serializable {
     }
 
     //equals and hashCode functions
-    @Override    
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -83,13 +81,11 @@ public class ResourceGathering extends Location implements Serializable {
     public void setRenewalTimer(double renewalTimer) {
         this.renewalTimer = renewalTimer;
     }
-    
-    //toString function
 
+    //toString function
     @Override
     public String toString() {
         return "ResourceGathering{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", resourceType=" + resourceType + ", resourceAmount=" + resourceAmount + ", renewalTimer=" + renewalTimer + '}';
     }
-    
-    
+
 }

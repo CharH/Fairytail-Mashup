@@ -12,7 +12,8 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class Spells extends Inventory implements Serializable{
+public class Spells extends Inventory implements Serializable {
+
     //class instance variables
     private String spellType;
     private double piecesCollected;
@@ -22,8 +23,6 @@ public class Spells extends Inventory implements Serializable{
 
     public Spells() {
     }
-    
-    
 
     public String getSpellType() {
         return spellType;
@@ -110,7 +109,5 @@ public class Spells extends Inventory implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
 }

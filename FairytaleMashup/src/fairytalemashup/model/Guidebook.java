@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class Guidebook implements Serializable{
-    
+public class Guidebook implements Serializable {
+
     //class instance variables
     private String fairytaleDescription;
     private double challengesCompleted;
@@ -21,11 +21,11 @@ public class Guidebook implements Serializable{
     private double challengeScore;
     private String locationDescription;
     private double itemsAvailable;
-    
+
     //default constructor function
     public Guidebook() {
     }
-    
+
     //getter and setter functions for instance variables
     public String getFairytaleDescription() {
         return fairytaleDescription;
@@ -74,7 +74,7 @@ public class Guidebook implements Serializable{
     public void setItemsAvailable(double itemsAvailable) {
         this.itemsAvailable = itemsAvailable;
     }
-    
+
     //equals() and hashCode() functions
     @Override
     public int hashCode() {
@@ -120,14 +120,11 @@ public class Guidebook implements Serializable{
         }
         return true;
     }
-    
-    //toString() function
 
+    //toString() function
     @Override
     public String toString() {
         return "Guidebook{" + "fairytaleDescription=" + fairytaleDescription + ", challengesCompleted=" + challengesCompleted + ", challengesAvailable=" + challengesAvailable + ", challengeScore=" + challengeScore + ", locationDescription=" + locationDescription + ", itemsAvailable=" + itemsAvailable + '}';
     }
-    
-    
-    
+
 }

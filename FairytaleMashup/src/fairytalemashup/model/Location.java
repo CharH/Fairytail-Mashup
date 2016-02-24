@@ -13,21 +13,19 @@ import java.util.Objects;
  * @author charlottehuyett
  */
 public class Location implements Serializable {
-    
+
     //class instance variables
     protected double row;
     protected double column;
     protected boolean visited;
     protected String locationName;
     protected String locationDescription;
-    
-    //default constructor function
 
+    //default constructor function
     public Location() {
     }
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public double getRow() {
         return row;
     }
@@ -67,9 +65,8 @@ public class Location implements Serializable {
     public void setLocationDescription(String locationDescription) {
         this.locationDescription = locationDescription;
     }
-    
-    //equals and hashCode functions
 
+    //equals and hashCode functions
     @Override
     public int hashCode() {
         int hash = 7;
@@ -110,12 +107,11 @@ public class Location implements Serializable {
         }
         return true;
     }
-    
-    //toString function
 
+    //toString function
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + '}';
     }
-    
+
 }

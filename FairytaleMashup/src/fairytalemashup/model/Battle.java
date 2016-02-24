@@ -12,21 +12,19 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class Battle extends Location implements Serializable{
-    
+public class Battle extends Location implements Serializable {
+
     //class instance variables
     private String enemyDescription;
     private double enemyStats;
     private String userWeapons;
     private double userStats;
-    
-    //default constructor function
 
+    //default constructor function
     public Battle() {
     }
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public String getEnemyDescription() {
         return enemyDescription;
     }
@@ -58,9 +56,8 @@ public class Battle extends Location implements Serializable{
     public void setUserStats(double userStats) {
         this.userStats = userStats;
     }
-    
-    //equals and hashCode functions
 
+    //equals and hashCode functions
     @Override
     public int hashCode() {
         int hash = 7;
@@ -101,8 +98,8 @@ public class Battle extends Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Battle{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription +
-                ", +enemyDescription=" + enemyDescription + ", enemyStats=" + enemyStats + ", userWeapons=" + userWeapons + ", userStats=" + userStats + '}';
+        return "Battle{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
+                + ", +enemyDescription=" + enemyDescription + ", enemyStats=" + enemyStats + ", userWeapons=" + userWeapons + ", userStats=" + userStats + '}';
     }
-    
+
 }

@@ -12,21 +12,18 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class Spellcasting extends Location implements Serializable{
-    
+public class Spellcasting extends Location implements Serializable {
+
     //class instance variables
     private String spellBook;
     private String userVoice;
     private String userAction;
-    
-    //default constructor function
 
+    //default constructor function
     public Spellcasting() {
     }
-    
 
     //getter and setter functions
-
     public String getSpellBook() {
         return spellBook;
     }
@@ -51,9 +48,7 @@ public class Spellcasting extends Location implements Serializable{
         this.userAction = userAction;
     }
 
-    
     //equals and hashCode functions
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -86,14 +81,12 @@ public class Spellcasting extends Location implements Serializable{
         }
         return true;
     }
-    
-    //toString()
 
+    //toString()
     @Override
     public String toString() {
-        return "Spellcasting{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + 
-                ", spellBook=" + spellBook + ", userVoice=" + userVoice + ", userAction=" + userAction + '}';
+        return "Spellcasting{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
+                + ", spellBook=" + spellBook + ", userVoice=" + userVoice + ", userAction=" + userAction + '}';
     }
-    
-}
 
+}

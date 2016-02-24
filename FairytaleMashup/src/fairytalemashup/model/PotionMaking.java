@@ -12,20 +12,18 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class PotionMaking extends Location implements Serializable{
-    
+public class PotionMaking extends Location implements Serializable {
+
     //class instance variables
     private String recipes;
     private String ingredients;
     private double setTimer;
-    
-    //default constructor function
 
+    //default constructor function
     public PotionMaking() {
     }
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public String getRecipes() {
         return recipes;
     }
@@ -49,9 +47,8 @@ public class PotionMaking extends Location implements Serializable{
     public void setSetTimer(double setTimer) {
         this.setTimer = setTimer;
     }
-    
-    //equals and hashCode functions
 
+    //equals and hashCode functions
     @Override
     public int hashCode() {
         int hash = 5;
@@ -88,8 +85,8 @@ public class PotionMaking extends Location implements Serializable{
 
     @Override
     public String toString() {
-        return "PotionMaking{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + 
-                ", recipes=" + recipes + ", ingredients=" + ingredients + ", setTimer=" + setTimer + '}';
+        return "PotionMaking{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
+                + ", recipes=" + recipes + ", ingredients=" + ingredients + ", setTimer=" + setTimer + '}';
     }
-    
+
 }

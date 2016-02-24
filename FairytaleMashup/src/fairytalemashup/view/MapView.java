@@ -12,6 +12,7 @@ import fairytalemashup.model.Location;
  * @author charlottehuyett
  */
 class MapView {
+
     private final String MAP_DISPLAY = buildMap();
 
     private String buildMap() {

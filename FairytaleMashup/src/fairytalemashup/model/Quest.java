@@ -12,20 +12,17 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class Quest extends Location implements Serializable{
-    
+public class Quest extends Location implements Serializable {
+
     //class instance variables
     private String questDescription;
     private String questStatus;
-    
-    //default constructor function
 
+    //default constructor function
     public Quest() {
     }
-   
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public String getQuestDescription() {
         return questDescription;
     }
@@ -41,9 +38,8 @@ public class Quest extends Location implements Serializable{
     public void setQuestStatus(String questStatus) {
         this.questStatus = questStatus;
     }
-    
-    //equals and hashCode functions
 
+    //equals and hashCode functions
     @Override
     public int hashCode() {
         int hash = 5;
@@ -76,8 +72,8 @@ public class Quest extends Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Quest{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + 
-                ", questDescription=" + questDescription + ", questStatus=" + questStatus + '}';
+        return "Quest{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
+                + ", questDescription=" + questDescription + ", questStatus=" + questStatus + '}';
     }
-    
+
 }

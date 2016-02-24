@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author charlottehuyett
  */
 public class MainMenuView {
-    
+
     private final String MENU = "\n"
             + "\n------------------------------------------"
             + "\n| Main Menu                              |"
@@ -26,42 +26,40 @@ public class MainMenuView {
             + "\nE - Exit"
             + "\n------------------------------------------";
 
-
     public void displayMenu() {
         char selection = ' ';
         do {
-               System.out.println(MENU); //display the main menu
-               String input = this.getInput(); //get user's selection
-               selection = input.charAt(0); //get first character of string
-               
-               this.doAction(selection); //do action based on selection
-           
+            System.out.println(MENU); //display the main menu
+            String input = this.getInput(); //get user's selection
+            selection = input.charAt(0); //get first character of string
+
+            this.doAction(selection); //do action based on selection
+
         } while (selection != 'E'); //if selection is not "Exit"
-        
-       
+
     }
-     private String getInput() {
+
+    private String getInput() {
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
         String value = "";
         String promptMessage = "\nPlease select an option.";
-        
+
         boolean valid = false; //set flag to invalid value entered
         while (!valid) { //while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println(promptMessage);
-            
+
             value = keyboard.nextLine(); //get name from keyboard
             value = value.trim(); //trim off the exess blanks
             value = value.toUpperCase(); //convert to uppercase
-            
+
             //if the name is invalid (less than one character in length)
-            if (value.length() <1) {
+            if (value.length() < 1) {
                 System.out.println("Invalid value - the value can not be blank.");
                 continue; //repeat again
             }
             valid = true; //set flag to end repetition
-          
-            
+
         }
         return value; //
     }
@@ -76,7 +74,7 @@ public class MainMenuView {
                 break;
             case 'H': //display help menu
                 this.displayHelpMenu();
-                break;   
+                break;
             case 'S': //save current game
                 this.saveGame();
                 break;
@@ -90,7 +88,7 @@ public class MainMenuView {
 
     private void startNewGame() {
         GameControl.createNewGame(FairytaleMashup.getPlayer());
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
     }
@@ -102,10 +100,10 @@ public class MainMenuView {
     private void displayHelpMenu() {
         //create HelpMenuView object
         HelpMenuView helpMenuView = new HelpMenuView();
-        
+
         //display the help menu view
         helpMenuView.displayMenu();
-    }   
+    }
 
     private void saveGame() {
         System.out.println("***saveGame function called");

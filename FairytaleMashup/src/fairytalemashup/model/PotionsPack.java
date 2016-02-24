@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author KatieSimons
  */
 public class PotionsPack extends Inventory implements Serializable {
+
     //class instance variables
     private String potionType;
     private double potionAmount;
@@ -23,8 +24,6 @@ public class PotionsPack extends Inventory implements Serializable {
 
     public PotionsPack() {
     }
-    
-    
 
     public String getPotionType() {
         return potionType;
@@ -123,7 +122,5 @@ public class PotionsPack extends Inventory implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
 }

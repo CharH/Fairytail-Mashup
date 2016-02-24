@@ -10,5 +10,5 @@ package fairytalemashup.control;
  * @author KatieSimons
  */
 public class StoryControl {
-    
+
 }

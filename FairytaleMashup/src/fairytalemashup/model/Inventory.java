@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author charlottehuyett
  */
-public class Inventory implements Serializable{
-    
+public class Inventory implements Serializable {
+
     //class instance variables
     protected String inventoryType;
     protected double amountAvailable;
@@ -21,14 +21,12 @@ public class Inventory implements Serializable{
     protected double usesAvailable;
     protected double timesUsed;
     protected double renewalTimer;
-    
-    //default constructor function
 
+    //default constructor function
     public Inventory() {
     }
-    
-    //getter and setter functions
 
+    //getter and setter functions
     public String getInventoryType() {
         return inventoryType;
     }
@@ -128,5 +126,5 @@ public class Inventory implements Serializable{
     public String toString() {
         return "Inventory{" + "inventoryType=" + inventoryType + ", amountAvailable=" + amountAvailable + ", amountRequired=" + amountRequired + ", usesAvailable=" + usesAvailable + ", timesUsed=" + timesUsed + ", renewalTimer=" + renewalTimer + '}';
     }
-    
+
 }

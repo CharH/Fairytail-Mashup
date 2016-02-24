@@ -13,14 +13,13 @@ import java.util.Objects;
  * @author KatieSimons
  */
 public class Resources extends Inventory implements Serializable {
+
     //class instance objects
     private String resourceType;
     private double availableAmount;
 
     public Resources() {
     }
-    
-    
 
     public String getResourceType() {
         return resourceType;
@@ -71,7 +70,5 @@ public class Resources extends Inventory implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
 }

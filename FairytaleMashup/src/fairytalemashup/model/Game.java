@@ -11,15 +11,14 @@ import java.io.Serializable;
  *
  * @author KatieSimons
  */
-public class Game implements Serializable{
+public class Game implements Serializable {
+
     //class instance variables
     private double totalTime;
     private double highScore;
 
     public Game() {
     }
-    
-    
 
     public double getTotalTime() {
         return totalTime;
@@ -70,7 +69,5 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
 }

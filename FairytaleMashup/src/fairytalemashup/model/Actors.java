@@ -12,7 +12,8 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class Actors implements Serializable{
+public class Actors implements Serializable {
+
     //class instance variables
     private String name;
     private String description;
@@ -23,8 +24,6 @@ public class Actors implements Serializable{
 
     public Actors() {
     }
-    
-    
 
     public String getName() {
         return name;
@@ -123,10 +122,5 @@ public class Actors implements Serializable{
         }
         return true;
     }
-    
-    
-
-   
-    
 
 }

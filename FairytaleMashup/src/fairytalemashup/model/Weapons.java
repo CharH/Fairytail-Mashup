@@ -12,7 +12,8 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class Weapons extends Inventory implements Serializable{
+public class Weapons extends Inventory implements Serializable {
+
     //class instance variables
     private String weaponType;
     private double damageInflicted;
@@ -22,8 +23,6 @@ public class Weapons extends Inventory implements Serializable{
 
     public Weapons() {
     }
-    
-    
 
     public String getWeaponType() {
         return weaponType;
@@ -110,8 +109,5 @@ public class Weapons extends Inventory implements Serializable{
         }
         return true;
     }
-    
-    
-            
-    
+
 }

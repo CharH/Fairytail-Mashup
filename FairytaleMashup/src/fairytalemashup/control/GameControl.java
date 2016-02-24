@@ -15,11 +15,11 @@ public class GameControl {
 
     public static Player createPlayer(String playersName) {
         Player player = ProgramControl.createPlayer(playersName);
-        return player ;
+        return player;
     }
 
     public static void createNewGame(Player player) {
         System.out.println("\n***createNewGame stub function called.***");
     }
-  
+
 }

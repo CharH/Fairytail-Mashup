@@ -7,8 +7,6 @@ package fairytalemashup;
 
 import fairytalemashup.model.Battle;
 
-
-
 import fairytalemashup.model.Actors;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.Guidebook;
@@ -34,7 +32,7 @@ public class FairytaleMashup {
 
     private static Game currentGame = null;
     private static Player player = null;
-    
+
     public static void main(String[] args) {
         //create StartProgramViewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
@@ -57,6 +55,4 @@ public class FairytaleMashup {
         FairytaleMashup.player = player;
     }
 
-    
-    
 }

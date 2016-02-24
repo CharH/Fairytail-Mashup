@@ -13,10 +13,10 @@ import java.util.Objects;
  * @author KatieSimons
  */
 public class Player implements Serializable {
-    
+
     //class instance variables
     private String name;
-    private double bestScore ;
+    private double bestScore;
     private int playerHealth;
     private int playerBaseHealth;
 
@@ -97,13 +97,4 @@ public class Player implements Serializable {
         return "Player{" + "name=" + name + ", bestScore=" + bestScore + ", playerHealth=" + playerHealth + ", playerBaseHealth=" + playerBaseHealth + '}';
     }
 
-   
-    
-
-   
-
-    
-    
-    
-    
 }
