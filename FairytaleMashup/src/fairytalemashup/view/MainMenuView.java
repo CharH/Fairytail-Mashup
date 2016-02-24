@@ -20,9 +20,8 @@ public class MainMenuView {
             + "\n| Main Menu                              |"
             + "\n------------------------------------------"
             + "\nN - Start a New Game"
-            + "\nG - Retrieve Saved Game"
+            + "\nR - Retrieve Saved Game"
             + "\nH - Get Help"
-            + "\nI - Inventory"
             + "\nS - Save Game"
             + "\nE - Exit"
             + "\n------------------------------------------";
@@ -72,15 +71,12 @@ public class MainMenuView {
             case 'N': //create and start a new game
                 this.startNewGame();
                 break;
-            case 'G': //start saved game
+            case 'R': //start saved game
                 this.startExistingGame();
                 break;
             case 'H': //display help menu
                 this.displayHelpMenu();
-                break;
-            case 'I': //diaplay Inventory menu
-                this.displayInventoryMenu();
-                break;    
+                break;   
             case 'S': //save current game
                 this.saveGame();
                 break;
@@ -104,20 +100,12 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        //create MainMenuView object
+        //create HelpMenuView object
         HelpMenuView helpMenuView = new HelpMenuView();
         
-        //display the main menu view
+        //display the help menu view
         helpMenuView.displayMenu();
-    }
-    
-    private void displayInventoryMenu() {
-        //create MainMenuView object
-        InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        
-        //display the main menu view
-        inventoryMenuView.displayInventoryMenu();
-    }    
+    }   
 
     private void saveGame() {
         System.out.println("***saveGame function called");

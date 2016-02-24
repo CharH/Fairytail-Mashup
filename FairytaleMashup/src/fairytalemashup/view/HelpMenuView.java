@@ -28,7 +28,7 @@ class HelpMenuView {
     public void displayMenu() {
         char selection = ' ';
         do {
-               System.out.println(HELP_MENU); //display the main menu
+               System.out.println(HELP_MENU); //display the help menu
                String input = this.getInput(); //get user's selection
                selection = input.charAt(0); //get first character of string
                
