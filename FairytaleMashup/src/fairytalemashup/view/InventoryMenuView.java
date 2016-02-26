@@ -105,6 +105,11 @@ public class InventoryMenuView {
     }
 
     private void displayWeapons() {
-        System.out.println("\n***display weapons stub function called.***");
+        //create WeaponsView object
+        WeaponsView weaponsView = new WeaponsView();
+
+        //display the weapons view
+        weaponsView.displayWeaponsView();        
+        //System.out.println("\n***display weapons stub function called.***");
     }
 }
