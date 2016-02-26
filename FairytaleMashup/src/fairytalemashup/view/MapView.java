@@ -27,7 +27,7 @@ class MapView {
         int i = 1;
         String mapList = null; // string that will contain the map
         mapList = "\n";
-        for (int j = 0; i < 6; j++) { //for loop builds coordinates across top of map
+        for (int j = 0; j < 6; j++) { //for loop builds coordinates across top of map
             mapList += "[  " + j + "  ] ";
 
         }
@@ -52,10 +52,9 @@ class MapView {
                 mapList += "[ " + location.getLocationName() + " ] ";
             }
 
-            if ((i == 5)) { //breaks string into more rows and adds row coordinates.
-                mapList += "\n[  " + i + "  ] ";
-            } else if ((i == 10) || (i == 15) || (i == 20)) {
-                mapList += "\n[  " + i + " ] ";
+            if ((i == 5)||(i == 10) || (i == 15) || (i == 20)) { //breaks string into more rows and adds row coordinates.
+                mapList += "\n[  " + (i/5 + 1) + "  ] ";
+            
             }
 
             i++;
