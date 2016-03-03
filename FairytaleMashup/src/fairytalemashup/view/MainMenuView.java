@@ -7,13 +7,13 @@ package fairytalemashup.view;
 
 import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
-import java.util.Scanner;
+
 
 /**
  *
  * @author charlottehuyett
  */
-public abstract class MainMenuView extends View {
+public class MainMenuView extends View {
     public MainMenuView(){
         super("\n"
             + "\n------------------------------------------"
@@ -49,7 +49,7 @@ public abstract class MainMenuView extends View {
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-        }
+    } 
     }
 
     private void startNewGame() {

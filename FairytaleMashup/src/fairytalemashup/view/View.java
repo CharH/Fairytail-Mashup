@@ -24,16 +24,15 @@ public abstract class View implements InterfaceView {
     
     @Override
     public void display() {
-        boolean done=false;
+        char selection = ' ';
         do {
-            String selection = this.getInput(); //get user's selection
+            
+            String input = this.getInput(); //get user's selection
+            selection = input.charAt(0); //get first character of string
 
-            if (selection.toUpperCase().equals("Q"))
-                return;
-            done=this.doAction(selection); //do action based on selection
+            this.doAction(selection); //do action based on selection
 
-        } while (!done); //if selection is not "Exit"
-
+        } while (selection != 'E'); //if selection is not "Exit"
     }
     
     @Override
@@ -48,6 +47,7 @@ public abstract class View implements InterfaceView {
 
             value = keyboard.nextLine(); //get name from keyboard
             value = value.trim(); //trim off the exess blanks
+            value = value.toUpperCase(); //make upper case
 
             //if the name is invalid (less than one character in length)
             if (value.length() < 1) {

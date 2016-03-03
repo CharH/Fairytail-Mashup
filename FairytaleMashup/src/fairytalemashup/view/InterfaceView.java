@@ -12,6 +12,6 @@ package fairytalemashup.view;
 public interface InterfaceView {
     public abstract void display();
     public abstract String getInput();
-    public abstract boolean doAction(String selection);
+    public abstract void doAction(char selection);
     
 }
