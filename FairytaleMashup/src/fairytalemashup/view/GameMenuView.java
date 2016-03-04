@@ -126,7 +126,8 @@ public class GameMenuView extends View {
     }
 
     private void displaySpellMenu() {
-        System.out.println("***displaySpellMenu function called");
+        SpellbookView spellbookView = new SpellbookView();
+        spellbookView.display();
     }
 
     private void displayHelpMenu() {

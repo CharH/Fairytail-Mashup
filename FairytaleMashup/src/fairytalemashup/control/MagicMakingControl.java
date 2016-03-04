@@ -13,6 +13,21 @@ import fairytalemashup.model.Spells;
  */
 public class MagicMakingControl {
 
+    public static String buildSpellbook() {
+        return "Useable spells and spells in progress display here. Type in 'E' to Exit this menu, or any other character to continue.";
+    }
+
+    public static void castSpell(char selection) {
+        System.out.println("Spell " + selection + " has been cast.");
+    }
+
+    public static char useableSpells(char selection) {
+        //probably use this as part of the build spellbook bit as well.
+        //build spellbook displays the info, but this is the section that checks for validity.
+        //Has the user found the spell? Does the user have all pieces of the spell? etc
+        return selection;
+    }
+
     public double castSpell(double action, double tone, Spells spells) {
         if (action < 1 || tone < 1) {
             return -1;

@@ -55,7 +55,8 @@ public class InventoryMenuView extends View {
     }
 
     private void displaySpells() {
-        System.out.println("\n***display Spells stub function called.***");
+        SpellbookView spellbookView = new SpellbookView();
+        spellbookView.display();
     }
 
     private void displayResources() {
