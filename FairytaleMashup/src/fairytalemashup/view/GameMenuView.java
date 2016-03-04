@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author charlottehuyett
  */
-class GameMenuView {
+public class GameMenuView extends View {
 
-    private final String GAME_MENU = "\n"
+     public GameMenuView(){
+        super("\n"
             + "\n------------------------------------------"
             + "\n| Game Menu                              |"
             + "\n------------------------------------------"
@@ -28,12 +29,13 @@ class GameMenuView {
             + "\nC - Cast a Spell"
             + "\nH - Get Help"
             + "\nQ - Quit Game"
-            + "\n------------------------------------------";
-
-    public void displayMenu() {
+            + "\n------------------------------------------");
+     }
+    
+    @Override 
+    public void display() {
         char selection = ' ';
         do {
-            System.out.println(GAME_MENU); //display the game menu
             String input = this.getInput(); //get user's selection
             selection = input.charAt(0); //get first character of string
 
@@ -43,31 +45,7 @@ class GameMenuView {
 
     }
 
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
-        String value = "";
-        String promptMessage = "\nPlease select an action.";
-
-        boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println(promptMessage);
-
-            value = keyboard.nextLine(); //get command from keyboard
-            value = value.trim(); //trim off the exess blanks
-            value = value.toUpperCase(); //convert to uppercase
-
-            //if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Whoops! You can't leave this blank, silly.");
-                continue; //repeat again
-            }
-            valid = true; //set flag to end repetition
-
-        }
-        return value; //
-    }
-
+    @Override    
     public void doAction(char selection) {
         switch (selection) {
             case 'V': //view map
@@ -112,7 +90,7 @@ class GameMenuView {
         //create MapView object
         MapView mapView = new MapView();
         //display map view
-        mapView.displayMapView();
+        mapView.display();
     }
 
     private void movePlayer() {
@@ -128,7 +106,7 @@ class GameMenuView {
         InventoryMenuView inventoryMenuView = new InventoryMenuView();
 
         //display the inventory menu view
-        inventoryMenuView.displayInventoryMenu();
+        inventoryMenuView.display();
     }
 
     private void displayStorybookMenu() {
@@ -156,7 +134,7 @@ class GameMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
 
         //display the help menu view
-        helpMenuView.displayMenu();
+        helpMenuView.display();
     }
 
 }

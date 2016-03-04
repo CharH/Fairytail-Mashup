@@ -7,11 +7,18 @@ package fairytalemashup.view;
 
 import fairytalemashup.model.Location;
 
-/**
+/*
  *
  * @author charlottehuyett
  */
-class MapView {
+public class MapView extends View {
+    public MapView() {
+        super ();
+}
+    @Override
+    public void doAction(char selection) {
+        return;
+    }
 
     private final String MAP_DISPLAY = buildMap();
 
@@ -61,8 +68,9 @@ class MapView {
         }
         return mapList; //return string with map info.
     }
-
-    public void displayMapView() {
+    
+    @Override  
+    public void display() {
         System.out.println(MAP_DISPLAY);
     }
 }

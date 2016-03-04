@@ -13,9 +13,9 @@ import java.util.Scanner;
  *
  * @author KatieSimons
  */
-public class InventoryMenuView {
-
-    private final String INVENTORY_MENU = "\n"
+public class InventoryMenuView extends View {
+         public InventoryMenuView(){
+        super("\n"
             + "\n------------------------------------------"
             + "\n| Inventory Menu                              |"
             + "\n------------------------------------------"
@@ -24,47 +24,10 @@ public class InventoryMenuView {
             + "\nR - Resources"
             + "\nW - Weapons"
             + "\nE - Exit Menu"
-            + "\n------------------------------------------";
+            + "\n------------------------------------------");
+     }
 
-    public void displayInventoryMenu() {
-
-        char selection = ' ';
-        do {
-            System.out.println(INVENTORY_MENU); //display the inventory menu
-            String input = this.getInput(); //get user's selection
-            selection = input.charAt(0); //get first character of string
-
-            this.doAction(selection); //do action based on selection
-
-        } while (selection != 'E'); //if selection is not "Exit"
-
-    }
-
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
-        String value = "";
-        String promptMessage = "\nPlease select an option.";
-
-        boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println(promptMessage);
-
-            value = keyboard.nextLine(); //get name from keyboard
-            value = value.trim(); //trim off the exess blanks
-            value = value.toUpperCase(); //convert to uppercase
-
-            //if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
-            }
-            valid = true; //set flag to end repetition
-
-        }
-        return value; //
-    }
-
+    @Override     
     public void doAction(char selection) {
         switch (selection) {
             case 'P': //view potions pack

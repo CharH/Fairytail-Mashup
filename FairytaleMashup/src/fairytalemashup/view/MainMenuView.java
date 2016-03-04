@@ -56,7 +56,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(FairytaleMashup.getPlayer());
 
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
@@ -68,7 +68,7 @@ public class MainMenuView extends View {
         HelpMenuView helpMenuView = new HelpMenuView();
 
         //display the help menu view
-        helpMenuView.displayMenu();
+        helpMenuView.display();
     }
 
     private void saveGame() {
