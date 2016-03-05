@@ -26,16 +26,16 @@ public class GuidebookView extends View {
     @Override     
     public void doAction(char selection) {
         switch (selection) {
-            case 'F': //view potions pack
+            case 'F': //view Fairy Tale Descriptions
                 this.displayFairyTaleDescriptions();
                 break;
-            case 'C': //view spellbook
+            case 'C': //view Complted Challenges
                 this.displayCompletedChallenges();
                 break;
-            case 'O': //display resources
+            case 'O': //view open challenges
                 this.displayOpenChallenges();
                 break;
-            case 'M': //view weapons
+            case 'M': //view map
                 this.viewMap();
                 break;
             case 'E': //exit the menu
