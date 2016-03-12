@@ -22,7 +22,7 @@ public class GameMenuView extends View {
             + "\nM - Move to New Location"
             + "\nE - Explore Location"
             + "\nI - View Inventory"
-            + "\nR - Read Storybook"
+            + "\nR - Read Story Guidebook"
             + "\nT - Talk with NPC"
             + "\nG - Gather Resources"
             + "\nB - Brew a Potion"
@@ -60,8 +60,8 @@ public class GameMenuView extends View {
             case 'I': //view inventory
                 this.displayInventoryMenu();
                 break;
-            case 'R': //read storybook aka view storybook menu
-                this.displayStorybookMenu();
+            case 'R': //read Guidebook aka view storybook menu
+                this.displayGuidebookMenu();
                 break;
             case 'T': //talk to NPC
                 this.talkToActor();
@@ -109,8 +109,9 @@ public class GameMenuView extends View {
         inventoryMenuView.display();
     }
 
-    private void displayStorybookMenu() {
-        System.out.println("***displayStorybookMenu function called");
+    private void displayGuidebookMenu() {
+        GuidebookView guidebookView = new GuidebookView();
+        guidebookView.display();
     }
 
     private void talkToActor() {
