@@ -324,4 +324,8 @@ public class MapControl {
         locations[5][5].setScene(scenes[SceneType.end.ordinal()]);
 
     }
+
+    public static void moveActorsToStartingLocation(Map map) {
+        System.out.println("***moveActorsToStart function called.");
+    }
 }

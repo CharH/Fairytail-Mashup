@@ -42,10 +42,6 @@ public class GameControl {
         Map map = MapControl.createMap(); //create map and locations
         game.setMap(map); //save map in game
 
-        Actor[] actors = Actor.values();
-//move actors to starting postions on the map
-        MapControl.moveActorsToStartingLocation(map);
-
     }
 
     public static InventoryItem[] getSortedInventoryList() {
@@ -53,7 +49,7 @@ public class GameControl {
     }
 
     public static Location[][] getMap() {
-        return FairytaleMashup.getCurrentGame().getMap().getLocations();
+        return FairytaleMashup.getCurrentGame().getMap().getLocation();
     }
 
     public enum Item {

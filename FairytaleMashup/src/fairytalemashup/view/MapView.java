@@ -32,34 +32,37 @@ public class MapView extends View {
         //Display Title
         System.out.println("\nMap of Fairytale Land");
         //display row of column numbers
-        System.out.println("0" + "\t" + "1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5");
+        String spacer = "     ";
+        String bigSpacer = "       ";
+        System.out.print(spacer + "0" + bigSpacer + "1" + bigSpacer + "2" + bigSpacer + "3" + bigSpacer + "4" + bigSpacer + "5");
 
         for (int row = 0; row < locations.length; row++) {
             //display row divider
-            System.out.println("-------------------------------------------------");
+            System.out.print("\n-------------------------------------------------");
             //display row number
-            System.out.println(row);
+            System.out.print("\n" + row + "|");
 
             for (int column = 0; column < locations[row].length; column++) {
                 //display column divider
-                System.out.println("\t" + "|");
+
                 Location location = locations[row][column];
                 //if location has been visited, display symbol/name, otherwise ???
                 if (location.isVisited() == true) {
                     Scene scene = location.getScene();
-                    System.out.println(scene.getMapSymbol());
+                    System.out.print(scene.getMapSymbol());
                 } else {
-                    System.out.println("?????");
+                    System.out.print(" ????? ");
                 }
+                System.out.print("|");
                 //if column end display divider
                 if (column == locations.length) {
-                    System.out.println("\t" + "|");
-
+                    System.out.println("|");
                 }
 
             }
-            //display ending row divider
-            System.out.println("-------------------------------------------------");
+
         }
+        //display ending row divider
+        System.out.println("\n-------------------------------------------------");
     }
 }

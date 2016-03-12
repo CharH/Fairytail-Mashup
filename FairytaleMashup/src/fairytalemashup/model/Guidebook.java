@@ -18,9 +18,6 @@ public class Guidebook implements Serializable {
     private String fairytaleDescription;
     private double challengesCompleted;
     private String challengesAvailable;
-    private double challengeScore;
-    private String locationDescription;
-    private double itemsAvailable;
 
     //cardinality things
     private Map map;
@@ -55,30 +52,6 @@ public class Guidebook implements Serializable {
         this.challengesAvailable = challengesAvailable;
     }
 
-    public double getChallengeScore() {
-        return challengeScore;
-    }
-
-    public void setChallengeScore(double challengeScore) {
-        this.challengeScore = challengeScore;
-    }
-
-    public String getLocationDescription() {
-        return locationDescription;
-    }
-
-    public void setLocationDescription(String locationDescription) {
-        this.locationDescription = locationDescription;
-    }
-
-    public double getItemsAvailable() {
-        return itemsAvailable;
-    }
-
-    public void setItemsAvailable(double itemsAvailable) {
-        this.itemsAvailable = itemsAvailable;
-    }
-
     public Map getMap() {
         return map;
     }
@@ -99,12 +72,9 @@ public class Guidebook implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.fairytaleDescription);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.challengesCompleted) ^ (Double.doubleToLongBits(this.challengesCompleted) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.challengesAvailable);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.challengeScore) ^ (Double.doubleToLongBits(this.challengeScore) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.locationDescription);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.itemsAvailable) ^ (Double.doubleToLongBits(this.itemsAvailable) >>> 32));
+        hash = 61 * hash + Objects.hashCode(this.fairytaleDescription);
+        hash = 61 * hash + (int) (Double.doubleToLongBits(this.challengesCompleted) ^ (Double.doubleToLongBits(this.challengesCompleted) >>> 32));
+        hash = 61 * hash + Objects.hashCode(this.challengesAvailable);
         return hash;
     }
 
@@ -123,28 +93,18 @@ public class Guidebook implements Serializable {
         if (Double.doubleToLongBits(this.challengesCompleted) != Double.doubleToLongBits(other.challengesCompleted)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.challengeScore) != Double.doubleToLongBits(other.challengeScore)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.itemsAvailable) != Double.doubleToLongBits(other.itemsAvailable)) {
-            return false;
-        }
         if (!Objects.equals(this.fairytaleDescription, other.fairytaleDescription)) {
             return false;
         }
         if (!Objects.equals(this.challengesAvailable, other.challengesAvailable)) {
             return false;
         }
-        if (!Objects.equals(this.locationDescription, other.locationDescription)) {
-            return false;
-        }
         return true;
     }
 
-    //toString() function
     @Override
     public String toString() {
-        return "Guidebook{" + "fairytaleDescription=" + fairytaleDescription + ", challengesCompleted=" + challengesCompleted + ", challengesAvailable=" + challengesAvailable + ", challengeScore=" + challengeScore + ", locationDescription=" + locationDescription + ", itemsAvailable=" + itemsAvailable + '}';
+        return "Guidebook{" + "fairytaleDescription=" + fairytaleDescription + ", challengesCompleted=" + challengesCompleted + ", challengesAvailable=" + challengesAvailable + ", map=" + map + ", game=" + game + '}';
     }
 
 }

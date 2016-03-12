@@ -20,7 +20,7 @@ public class Game implements Serializable {
     //cardinality things
     public InventoryItem[] inventory;
     public Player player;
-    private Guidebook guidebook;
+    private Guidebook[] guidebook;
     private Map map;
 
     public Game() {
@@ -58,11 +58,11 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Guidebook getGuidebook() {
+    public Guidebook[] getGuidebook() {
         return guidebook;
     }
 
-    public void setGuidebook(Guidebook guidebook) {
+    public void setGuidebook(Guidebook[] guidebook) {
         this.guidebook = guidebook;
     }
 
