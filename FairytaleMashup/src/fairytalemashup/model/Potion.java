@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class PotionsPack extends Inventory implements Serializable {
+public class Potion extends InventoryItem implements Serializable {
 
     //class instance variables
     private String potionType;
@@ -22,7 +22,7 @@ public class PotionsPack extends Inventory implements Serializable {
     private double damages;
     private double renewalTime;
 
-    public PotionsPack() {
+    public Potion() {
     }
 
     public String getPotionType() {
@@ -101,7 +101,7 @@ public class PotionsPack extends Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PotionsPack other = (PotionsPack) obj;
+        final Potion other = (Potion) obj;
         if (Double.doubleToLongBits(this.potionAmount) != Double.doubleToLongBits(other.potionAmount)) {
             return false;
         }

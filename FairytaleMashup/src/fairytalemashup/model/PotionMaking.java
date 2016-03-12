@@ -18,6 +18,8 @@ public class PotionMaking extends Location implements Serializable {
     private String recipes;
     private String ingredients;
     private double setTimer;
+    //cardinality things
+    private Location[] locations;
 
     //default constructor function
     public PotionMaking() {
@@ -46,6 +48,14 @@ public class PotionMaking extends Location implements Serializable {
 
     public void setSetTimer(double setTimer) {
         this.setTimer = setTimer;
+    }
+
+    public Location[] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[] location) {
+        this.locations = location;
     }
 
     //equals and hashCode functions

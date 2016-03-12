@@ -17,7 +17,8 @@ public class Quest extends Location implements Serializable {
     //class instance variables
     private String questDescription;
     private String questStatus;
-
+//cardinality things
+    private Location[] locations;
     //default constructor function
     public Quest() {
     }
@@ -37,6 +38,14 @@ public class Quest extends Location implements Serializable {
 
     public void setQuestStatus(String questStatus) {
         this.questStatus = questStatus;
+    }
+
+    public Location[] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[] location) {
+        this.locations = location;
     }
 
     //equals and hashCode functions

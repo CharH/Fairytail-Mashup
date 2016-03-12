@@ -12,13 +12,14 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class Resources extends Inventory implements Serializable {
+public class Resource extends InventoryItem implements Serializable {
 
     //class instance objects
     private String resourceType;
     private double availableAmount;
-
-    public Resources() {
+    
+    
+    public Resource() {
     }
 
     public String getResourceType() {
@@ -37,6 +38,8 @@ public class Resources extends Inventory implements Serializable {
         this.availableAmount = availableAmount;
     }
 
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -61,7 +64,7 @@ public class Resources extends Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Resources other = (Resources) obj;
+        final Resource other = (Resource) obj;
         if (Double.doubleToLongBits(this.availableAmount) != Double.doubleToLongBits(other.availableAmount)) {
             return false;
         }

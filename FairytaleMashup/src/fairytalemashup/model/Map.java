@@ -6,6 +6,7 @@
 package fairytalemashup.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -14,36 +15,84 @@ import java.io.Serializable;
 public class Map implements Serializable {
 
     //class instance variables
-    private double rowCount;
-    private double columnCount;
+    private int noOfRows;
+    private int noOfColumns;
+    
+    //cardinality things
+    public Location[][] locations;
+    private Game game;
+    private Guidebook guidebook;
 
     //default constructor function
     public Map() {
     }
 
+    public Map(int noOfRows, int noOfColumns) {
+        if (noOfRows < 1 || noOfColumns < 1){
+            System.out.println("The number of rows and columns must be greater than zero!");
+        }
+        
+        this.noOfRows= noOfRows;
+        this.noOfColumns = noOfColumns;
+        
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for (int row = 0; row < noOfRows; row++){
+            for (int column = 0; column < noOfColumns; column++){
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][column] =  location;
+            }
+        }
+    }
+
     //getter and setter functions
-    public double getRowCount() {
-        return rowCount;
+
+    public int getNoOfRows() {
+        return noOfRows;
     }
 
-    public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
     }
 
-    public double getColumnCount() {
-        return columnCount;
+    public int getNoOfColumns() {
+        return noOfColumns;
     }
 
-    public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
+    public void setNoOfColumns(int noOfColumns) {
+        this.noOfColumns = noOfColumns;
     }
 
+    public Location[][] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[][] location) {
+        this.locations = location;
+    }
+    
+    
+    
     //equals and hashCode functions
+    
+
+    //toString function
+
+    @Override
+    public String toString() {
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", location=" + locations + '}';
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        int hash = 3;
+        hash = 37 * hash + this.noOfRows;
+        hash = 37 * hash + this.noOfColumns;
+        hash = 37 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -59,19 +108,17 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
+        if (this.noOfRows != other.noOfRows) {
             return false;
         }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (this.noOfColumns != other.noOfColumns) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
-
-    //toString function
-    @Override
-    public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
-    }
+    
 
 }

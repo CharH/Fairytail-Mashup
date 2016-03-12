@@ -19,6 +19,8 @@ public class Spellcasting extends Location implements Serializable {
     private String userVoice;
     private String userAction;
 
+    //cardinality things
+    private Location[] locations;
     //default constructor function
     public Spellcasting() {
     }
@@ -46,6 +48,14 @@ public class Spellcasting extends Location implements Serializable {
 
     public void setUserAction(String userAction) {
         this.userAction = userAction;
+    }
+
+    public Location[] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[] location) {
+        this.locations = location;
     }
 
     //equals and hashCode functions

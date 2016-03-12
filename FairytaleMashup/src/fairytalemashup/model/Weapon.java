@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author KatieSimons
  */
-public class Weapons extends Inventory implements Serializable {
+public class Weapon extends InventoryItem implements Serializable {
 
     //class instance variables
     private String weaponType;
@@ -21,7 +21,7 @@ public class Weapons extends Inventory implements Serializable {
     private double protection;
     private String weaponArmed;
 
-    public Weapons() {
+    public Weapon() {
     }
 
     public String getWeaponType() {
@@ -91,7 +91,7 @@ public class Weapons extends Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Weapons other = (Weapons) obj;
+        final Weapon other = (Weapon) obj;
         if (Double.doubleToLongBits(this.damageInflicted) != Double.doubleToLongBits(other.damageInflicted)) {
             return false;
         }

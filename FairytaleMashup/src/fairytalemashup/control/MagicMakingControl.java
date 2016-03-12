@@ -5,7 +5,7 @@
  */
 package fairytalemashup.control;
 
-import fairytalemashup.model.Spells;
+import fairytalemashup.model.Spell;
 
 /**
  *
@@ -28,7 +28,7 @@ public class MagicMakingControl {
         return selection;
     }
 
-    public double castSpell(double action, double tone, Spells spells) {
+    public double castSpell(double action, double tone, Spell spells) {
         if (action < 1 || tone < 1) {
             return -1;
         }

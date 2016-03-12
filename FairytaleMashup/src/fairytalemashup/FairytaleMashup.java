@@ -7,21 +7,21 @@ package fairytalemashup;
 
 import fairytalemashup.model.Battle;
 
-import fairytalemashup.model.Actors;
+import fairytalemashup.model.Actor;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.Guidebook;
-import fairytalemashup.model.Inventory;
+import fairytalemashup.model.InventoryItem;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
 import fairytalemashup.model.PotionMaking;
-import fairytalemashup.model.PotionsPack;
+import fairytalemashup.model.Potion;
 import fairytalemashup.model.Quest;
 import fairytalemashup.model.ResourceGathering;
-import fairytalemashup.model.Resources;
-import fairytalemashup.model.Spells;
+import fairytalemashup.model.Resource;
+import fairytalemashup.model.Spell;
 import fairytalemashup.model.Spellcasting;
-import fairytalemashup.model.Weapons;
+import fairytalemashup.model.Weapon;
 import fairytalemashup.view.StartProgramView;
 
 /**

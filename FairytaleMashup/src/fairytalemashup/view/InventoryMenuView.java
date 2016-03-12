@@ -7,6 +7,8 @@ package fairytalemashup.view;
 
 import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
+import fairytalemashup.model.Game;
+import fairytalemashup.model.InventoryItem;
 import java.util.Scanner;
 
 /**
@@ -60,12 +62,18 @@ public class InventoryMenuView extends View {
     }
 
     private void displayResources() {
-        System.out.println("\n***display Resources stub function called.***");
-        //create MainMenuView object
-        //HelpMenuView helpMenuView = new HelpMenuView();
-
-        //display the main menu view
-        //helpMenuView.displayMenu();
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        //create header
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t" +
+                "Quantity" + "\t" +
+                "ReUsable");
+        //display item info
+        for (InventoryItem inventoryItem : inventory) {
+            System.out.println(inventoryItem.getDescription() + "/t   " +
+                    inventoryItem.getAmountAvailable() + "\t   " +
+                    inventoryItem.isMultiUse());
+        }
     }
 
     private void displayWeapons() {

@@ -19,6 +19,8 @@ public class Battle extends Location implements Serializable {
     private double enemyStats;
     private String userWeapons;
     private double userStats;
+    //cardinality things
+    private Location[] locations;
 
     //default constructor function
     public Battle() {
@@ -55,6 +57,14 @@ public class Battle extends Location implements Serializable {
 
     public void setUserStats(double userStats) {
         this.userStats = userStats;
+    }
+
+    public Location[] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[] location) {
+        this.locations = location;
     }
 
     //equals and hashCode functions

@@ -19,6 +19,10 @@ public class Player implements Serializable {
     private double bestScore;
     private int playerHealth;
     private int playerBaseHealth;
+    
+    //cardinality things
+    private Game[] game;
+    private Actor[] actor;
 
     public Player() {
     }
@@ -55,6 +59,22 @@ public class Player implements Serializable {
         this.playerBaseHealth = playerBaseHealth;
     }
 
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

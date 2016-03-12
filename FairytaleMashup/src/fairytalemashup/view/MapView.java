@@ -5,7 +5,10 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Location;
+import fairytalemashup.model.Map;
+import fairytalemashup.model.Scene;
 
 /*
  *
@@ -20,57 +23,40 @@ public class MapView extends View {
         return;
     }
 
-    private final String MAP_DISPLAY = buildMap();
-
-    private String buildMap() {
-
-        /*loop through for each coordinate on map, build string out of returns using a loop, return string to MAP_DISPLAY    
-        if user has visted location
-                display location name
-        else
-                display ???
-        return string
-         */
-        int i = 1;
-        String mapList = null; // string that will contain the map
-        mapList = "\n";
-        for (int j = 0; j < 6; j++) { //for loop builds coordinates across top of map
-            mapList += "[  " + j + "  ] ";
-
-        }
-        while (i < 26) { //builds 25 locations for map, plus coordinates down side of map.
-
-            //***********************************
-            /*Block of code below was needed in order to run function, but
-            will need to change to pull from actual locations instead of blank
-            ones generated here.*/
-            //***********************************
-            Location location = new Location();
-            location.setLocationName("Location#" + i);
-            //***********************************
-
-            if ((i == 1)) { //creates first row and row coordinate.
-                mapList += "\n[  " + i + "  ] ";
-            }
-
-            if (!location.isVisited()) { //hides name if user hasn't visted the location yet
-                mapList += "[ ??? ] ";
-            } else { //displays name if user has visted the location
-                mapList += "[ " + location.getLocationName() + " ] ";
-            }
-
-            if ((i == 5)||(i == 10) || (i == 15) || (i == 20)) { //breaks string into more rows and adds row coordinates.
-                mapList += "\n[  " + (i/5 + 1) + "  ] ";
-            
-            }
-
-            i++;
-        }
-        return mapList; //return string with map info.
-    }
-    
     @Override  
     public void display() {
-        System.out.println(MAP_DISPLAY);
+        Location[][] locations = GameControl.getMap();
+        
+        //Display Title
+        System.out.println("\nMap of Fairytale Land");
+        //display row of column numbers
+        System.out.println("0" + "\t" + "1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5");
+        
+        for ( Location row : locations){
+            //display row divider
+            System.out.println("-------------------------------------------------");
+            //display row number
+            System.out.println(row);
+            
+            for (Location column : locations){
+                //display column divider
+                System.out.println("\t"+"|*|");
+                Location location = locations[row][column];
+                //if location has been visited, display symbol/name, otherwise ???
+                if (location.isVisited() == true) {
+                    System.out.println(location.getMapSymbol());
+                } else{
+                    System.out.println("?????");
+                }
+                //if column end display divider
+                if (column == locations.length){
+                    System.out.println("\t"+"|*|");
+                    
+                }
+                
+            }
+            //display ending row divider
+            System.out.println("-------------------------------------------------");
+        }
     }
 }

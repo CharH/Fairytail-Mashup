@@ -6,6 +6,7 @@
 package fairytalemashup.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,30 +16,37 @@ import java.util.Objects;
 public class Location implements Serializable {
 
     //class instance variables
-    protected double row;
-    protected double column;
+    private int row;
+    private int column;
     protected boolean visited;
     protected String locationName;
     protected String locationDescription;
-
+    
+    //cardinality things
+    private Actor[] actor;
+    private Map map;
+    public Scene scene;
+   
+    
     //default constructor function
     public Location() {
     }
 
     //getter and setter functions
-    public double getRow() {
+
+    public int getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -66,15 +74,31 @@ public class Location implements Serializable {
         this.locationDescription = locationDescription;
     }
 
-    //equals and hashCode functions
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 59 * hash + (this.visited ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.locationName);
-        hash = 59 * hash + Objects.hashCode(this.locationDescription);
+        hash = 29 * hash + this.row;
+        hash = 29 * hash + this.column;
+        hash = 29 * hash + (this.visited ? 1 : 0);
+        hash = 29 * hash + Objects.hashCode(this.locationName);
+        hash = 29 * hash + Objects.hashCode(this.locationDescription);
+        hash = 29 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -90,10 +114,10 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
+        if (this.row != other.row) {
             return false;
         }
-        if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
+        if (this.column != other.column) {
             return false;
         }
         if (this.visited != other.visited) {
@@ -105,13 +129,27 @@ public class Location implements Serializable {
         if (!Objects.equals(this.locationDescription, other.locationDescription)) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         return true;
     }
 
-    //toString function
+
+    
+   
+
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", map=" + map + ", scene=" + scene + '}';
     }
+    
+    }
+  
+   
 
-}
+    
+
+
+
+    

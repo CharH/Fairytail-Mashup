@@ -5,7 +5,7 @@
  */
 package fairytalemashup.control;
 
-import fairytalemashup.model.Spells;
+import fairytalemashup.model.Spell;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +36,7 @@ public class MagicMakingControlTest {
         System.out.println("Test case #1");
         double action = 2;
         double tone = 3;
-        Spells testSpell = new Spells(); //create new spells object instance
+        Spell testSpell = new Spell(); //create new spells object instance
         testSpell.setDamages(25); //set spell damage attribute
         MagicMakingControl instance = new MagicMakingControl();
         double expResult = 31;

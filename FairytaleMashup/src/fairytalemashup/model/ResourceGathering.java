@@ -18,7 +18,8 @@ public class ResourceGathering extends Location implements Serializable {
     private String resourceType;
     private double resourceAmount;
     private double renewalTimer;
-
+//cardinality things
+    private Location[] locations;
     //default constructor function
     public ResourceGathering() {
     }
@@ -34,6 +35,14 @@ public class ResourceGathering extends Location implements Serializable {
 
     public double getResourceAmount() {
         return resourceAmount;
+    }
+
+    public Location[] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[] location) {
+        this.locations = location;
     }
 
     @Override
@@ -85,7 +94,7 @@ public class ResourceGathering extends Location implements Serializable {
     //toString function
     @Override
     public String toString() {
-        return "ResourceGathering{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", resourceType=" + resourceType + ", resourceAmount=" + resourceAmount + ", renewalTimer=" + renewalTimer + '}';
+        return "ResourceGathering{" + "visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", resourceType=" + resourceType + ", resourceAmount=" + resourceAmount + ", renewalTimer=" + renewalTimer + '}';
     }
 
 }
