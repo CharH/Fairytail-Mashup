@@ -10,20 +10,21 @@ package fairytalemashup.view;
  * @author KatieSimons
  */
 public class GuidebookView extends View {
-        public GuidebookView(){
-        super("\n"
-            + "\n------------------------------------------"
-            + "\n| Guidebook Menu                              |"
-            + "\n------------------------------------------"
-            + "\nF - Fairy Tale Descriptions"
-            + "\nC - Completed Challenges"
-            + "\nO - Open Challenges"
-            + "\nM - Map"
-            + "\nE - Exit Menu"
-            + "\n------------------------------------------");
-     }
 
-    @Override     
+    public GuidebookView() {
+        super("\n"
+                + "\n------------------------------------------"
+                + "\n| Guidebook Menu                              |"
+                + "\n------------------------------------------"
+                + "\nF - Fairy Tale Descriptions"
+                + "\nC - Completed Challenges"
+                + "\nO - Open Challenges"
+                + "\nM - Map"
+                + "\nE - Exit Menu"
+                + "\n------------------------------------------");
+    }
+
+    @Override
     public void doAction(char selection) {
         switch (selection) {
             case 'F': //view Fairy Tale Descriptions

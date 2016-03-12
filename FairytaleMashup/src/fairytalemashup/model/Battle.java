@@ -20,7 +20,7 @@ public class Battle extends Location implements Serializable {
     private String userWeapons;
     private double userStats;
     //cardinality things
-    private Location[] locations;
+    private Location[][] locations;
 
     //default constructor function
     public Battle() {
@@ -59,11 +59,11 @@ public class Battle extends Location implements Serializable {
         this.userStats = userStats;
     }
 
-    public Location[] getLocation() {
+    public Location[][] getLocation() {
         return locations;
     }
 
-    public void setLocation(Location[] location) {
+    public void setLocation(Location[][] location) {
         this.locations = location;
     }
 
@@ -108,8 +108,7 @@ public class Battle extends Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Battle{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
-                + ", +enemyDescription=" + enemyDescription + ", enemyStats=" + enemyStats + ", userWeapons=" + userWeapons + ", userStats=" + userStats + '}';
+        return "Battle{" + "enemyDescription=" + enemyDescription + ", enemyStats=" + enemyStats + ", userWeapons=" + userWeapons + ", userStats=" + userStats + ", locations=" + locations + '}';
     }
 
 }

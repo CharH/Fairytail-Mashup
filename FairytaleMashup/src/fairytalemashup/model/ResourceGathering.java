@@ -20,6 +20,7 @@ public class ResourceGathering extends Location implements Serializable {
     private double renewalTimer;
 //cardinality things
     private Location[] locations;
+
     //default constructor function
     public ResourceGathering() {
     }

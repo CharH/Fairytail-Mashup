@@ -17,7 +17,7 @@ public class Map implements Serializable {
     //class instance variables
     private int noOfRows;
     private int noOfColumns;
-    
+
     //cardinality things
     public Location[][] locations;
     private Game game;
@@ -28,29 +28,28 @@ public class Map implements Serializable {
     }
 
     public Map(int noOfRows, int noOfColumns) {
-        if (noOfRows < 1 || noOfColumns < 1){
+        if (noOfRows < 1 || noOfColumns < 1) {
             System.out.println("The number of rows and columns must be greater than zero!");
         }
-        
-        this.noOfRows= noOfRows;
+
+        this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
-        
+
         this.locations = new Location[noOfRows][noOfColumns];
-        
-        for (int row = 0; row < noOfRows; row++){
-            for (int column = 0; column < noOfColumns; column++){
+
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColumns; column++) {
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
-                locations[row][column] =  location;
+
+                locations[row][column] = location;
             }
         }
     }
 
     //getter and setter functions
-
     public int getNoOfRows() {
         return noOfRows;
     }
@@ -74,14 +73,9 @@ public class Map implements Serializable {
     public void setLocation(Location[][] location) {
         this.locations = location;
     }
-    
-    
-    
+
     //equals and hashCode functions
-    
-
     //toString function
-
     @Override
     public String toString() {
         return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", location=" + locations + '}';
@@ -119,6 +113,5 @@ public class Map implements Serializable {
         }
         return true;
     }
-    
 
 }

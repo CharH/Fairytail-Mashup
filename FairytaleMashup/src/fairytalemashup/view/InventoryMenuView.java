@@ -16,20 +16,21 @@ import java.util.Scanner;
  * @author KatieSimons
  */
 public class InventoryMenuView extends View {
-         public InventoryMenuView(){
-        super("\n"
-            + "\n------------------------------------------"
-            + "\n| Inventory Menu                              |"
-            + "\n------------------------------------------"
-            + "\nP - Potions Pack"
-            + "\nS - Spellbook"
-            + "\nR - Resources"
-            + "\nW - Weapons"
-            + "\nE - Exit Menu"
-            + "\n------------------------------------------");
-     }
 
-    @Override     
+    public InventoryMenuView() {
+        super("\n"
+                + "\n------------------------------------------"
+                + "\n| Inventory Menu                              |"
+                + "\n------------------------------------------"
+                + "\nP - Potions Pack"
+                + "\nS - Spellbook"
+                + "\nR - Resources"
+                + "\nW - Weapons"
+                + "\nE - Exit Menu"
+                + "\n------------------------------------------");
+    }
+
+    @Override
     public void doAction(char selection) {
         switch (selection) {
             case 'P': //view potions pack
@@ -65,14 +66,14 @@ public class InventoryMenuView extends View {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         //create header
         System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" +
-                "Quantity" + "\t" +
-                "ReUsable");
+        System.out.println("Description" + "\t"
+                + "Quantity" + "\t"
+                + "ReUsable");
         //display item info
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "/t   " +
-                    inventoryItem.getAmountAvailable() + "\t   " +
-                    inventoryItem.isMultiUse());
+            System.out.println(inventoryItem.getDescription() + "/t   "
+                    + inventoryItem.getAmountAvailable() + "\t   "
+                    + inventoryItem.isMultiUse());
         }
     }
 
@@ -81,7 +82,7 @@ public class InventoryMenuView extends View {
         WeaponsView weaponsView = new WeaponsView();
 
         //display the weapons view
-        weaponsView.displayWeaponsView();        
+        weaponsView.displayWeaponsView();
         //System.out.println("\n***display weapons stub function called.***");
     }
 }

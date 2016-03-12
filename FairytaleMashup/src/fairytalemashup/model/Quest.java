@@ -18,7 +18,8 @@ public class Quest extends Location implements Serializable {
     private String questDescription;
     private String questStatus;
 //cardinality things
-    private Location[] locations;
+    private Location[][] locations;
+
     //default constructor function
     public Quest() {
     }
@@ -40,11 +41,11 @@ public class Quest extends Location implements Serializable {
         this.questStatus = questStatus;
     }
 
-    public Location[] getLocation() {
+    public Location[][] getLocation() {
         return locations;
     }
 
-    public void setLocation(Location[] location) {
+    public void setLocation(Location[][] location) {
         this.locations = location;
     }
 
@@ -81,8 +82,7 @@ public class Quest extends Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Quest{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
-                + ", questDescription=" + questDescription + ", questStatus=" + questStatus + '}';
+        return "Quest{" + "questDescription=" + questDescription + ", questStatus=" + questStatus + ", locations=" + locations + '}';
     }
 
 }

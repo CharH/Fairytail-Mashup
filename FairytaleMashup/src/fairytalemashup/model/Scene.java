@@ -12,14 +12,14 @@ import java.util.Objects;
  * @author charlottehuyett
  */
 public class Scene {
-    
+
     private String description;
     private String mapSymbol;
     private boolean blocked;
     private int travelTime;
-    
+
     private Location[] locations;
-    
+
     public Scene() {
     }
 
@@ -96,5 +96,5 @@ public class Scene {
     public String toString() {
         return "Scene{" + "description=" + description + ", mapSumbol=" + mapSymbol + ", blocked=" + blocked + ", travelTime=" + travelTime + '}';
     }
-    
+
 }

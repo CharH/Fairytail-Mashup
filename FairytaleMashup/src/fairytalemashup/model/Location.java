@@ -21,19 +21,17 @@ public class Location implements Serializable {
     protected boolean visited;
     protected String locationName;
     protected String locationDescription;
-    
+
     //cardinality things
     private Actor[] actor;
     private Map map;
     public Scene scene;
-   
-    
+
     //default constructor function
     public Location() {
     }
 
     //getter and setter functions
-
     public int getRow() {
         return row;
     }
@@ -135,21 +133,9 @@ public class Location implements Serializable {
         return true;
     }
 
-
-    
-   
-
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription + ", map=" + map + ", scene=" + scene + '}';
     }
-    
-    }
-  
-   
 
-    
-
-
-
-    
+}

@@ -14,6 +14,4 @@ class SceneType {
     public SceneType() {
     }
 
-    
-    
 }

@@ -12,21 +12,22 @@ import java.util.Scanner;
  * @author KatieSimons
  */
 public abstract class View implements InterfaceView {
+
     protected String displayMessage;
-    
-    public View(){
+
+    public View() {
         super();
     }
-    
-    public View(String message){
+
+    public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display() {
         char selection = ' ';
         do {
-            
+
             String input = this.getInput(); //get user's selection
             selection = input.charAt(0); //get first character of string
 
@@ -34,9 +35,9 @@ public abstract class View implements InterfaceView {
 
         } while (selection != 'E'); //if selection is not "Exit"
     }
-    
+
     @Override
-        public String getInput() {
+    public String getInput() {
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
         String value = null;
 

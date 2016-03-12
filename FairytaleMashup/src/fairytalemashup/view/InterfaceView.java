@@ -10,8 +10,11 @@ package fairytalemashup.view;
  * @author KatieSimons
  */
 public interface InterfaceView {
+
     public abstract void display();
+
     public abstract String getInput();
+
     public abstract void doAction(char selection);
-    
+
 }

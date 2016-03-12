@@ -8,26 +8,24 @@ package fairytalemashup.view;
 import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 
-
 /**
  *
  * @author charlottehuyett
  */
 public class MainMenuView extends View {
-    public MainMenuView(){
+
+    public MainMenuView() {
         super("\n"
-            + "\n------------------------------------------"
-            + "\n| Main Menu                              |"
-            + "\n------------------------------------------"
-            + "\nN - Start a New Game"
-            + "\nR - Retrieve Saved Game"
-            + "\nH - Get Help"
-            + "\nS - Save Game"
-            + "\nE - Exit"
-            + "\n------------------------------------------");
+                + "\n------------------------------------------"
+                + "\n| Main Menu                              |"
+                + "\n------------------------------------------"
+                + "\nN - Start a New Game"
+                + "\nR - Retrieve Saved Game"
+                + "\nH - Get Help"
+                + "\nS - Save Game"
+                + "\nE - Exit"
+                + "\n------------------------------------------");
     }
-
-
 
     @Override
     public void doAction(char selection) {
@@ -49,7 +47,7 @@ public class MainMenuView extends View {
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-    } 
+        }
     }
 
     private void startNewGame() {

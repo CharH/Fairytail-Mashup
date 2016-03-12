@@ -14,12 +14,12 @@ import java.util.Scanner;
  * @author KatieSimons
  */
 public class WeaponsView {
-    
+
     private String promptMessage;
 
     public WeaponsView() {
         this.promptMessage = "\nEnter the type of weapon you wish to use: ";
-/*In the future weapon inputs will only be valid if player has that weapon in thier
+        /*In the future weapon inputs will only be valid if player has that weapon in thier
   inventory, but that has not yet been set up.*/
     }
 
@@ -66,14 +66,11 @@ public class WeaponsView {
         if (weaponType.length() < 1 || weaponType == " ") {
             System.out.println("Error: invlaid entry");
             return false;
-        }
-        
-        else { 
+        } else {
             System.out.println(weaponType + " has been selected.");
             return true;
-        }        
-     
+        }
+
     }
 
-    
 }

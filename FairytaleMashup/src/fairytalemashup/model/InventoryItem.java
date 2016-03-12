@@ -19,17 +19,15 @@ public class InventoryItem implements Serializable {
     protected String description;
     protected double amountAvailable;
     protected boolean multiUse;
-    
+
     //cardinality things
     private Game game;
- 
 
     //default constructor function
     public InventoryItem() {
     }
 
     //getter and setter functions
-
     public String getInventoryType() {
         return inventoryType;
     }
@@ -115,6 +113,5 @@ public class InventoryItem implements Serializable {
     public String toString() {
         return "InventoryItem{" + "inventoryType=" + inventoryType + ", description=" + description + ", amountAvailable=" + amountAvailable + ", multiUse=" + multiUse + ", game=" + game + '}';
     }
-    
 
 }

@@ -17,8 +17,7 @@ public class Resource extends InventoryItem implements Serializable {
     //class instance objects
     private String resourceType;
     private double availableAmount;
-    
-    
+
     public Resource() {
     }
 
@@ -38,19 +37,12 @@ public class Resource extends InventoryItem implements Serializable {
         this.availableAmount = availableAmount;
     }
 
-    }
-    
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.resourceType);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.availableAmount) ^ (Double.doubleToLongBits(this.availableAmount) >>> 32));
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.resourceType);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.availableAmount) ^ (Double.doubleToLongBits(this.availableAmount) >>> 32));
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Resources{" + "resourceType=" + resourceType + ", availableAmount=" + availableAmount + '}';
     }
 
     @Override
@@ -72,6 +64,11 @@ public class Resource extends InventoryItem implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Resource{" + "resourceType=" + resourceType + ", availableAmount=" + availableAmount + '}';
     }
 
 }

@@ -12,21 +12,21 @@ import java.util.Scanner;
  * @author charlottehuyett
  */
 public class HelpMenuView extends View {
-    
-     public HelpMenuView(){
+
+    public HelpMenuView() {
         super("\n"
-            + "\n------------------------------------------"
-            + "\n| Help Menu                              |"
-            + "\n------------------------------------------"
-            + "\nW - What is my goal?"
-            + "\nH - How to Play"
-            + "\nP - Potion Making"
-            + "\nS - Spellcasting"
-            + "\nE - Exit Menu"
-            + "\n------------------------------------------");
-     }
-     
-    @Override 
+                + "\n------------------------------------------"
+                + "\n| Help Menu                              |"
+                + "\n------------------------------------------"
+                + "\nW - What is my goal?"
+                + "\nH - How to Play"
+                + "\nP - Potion Making"
+                + "\nS - Spellcasting"
+                + "\nE - Exit Menu"
+                + "\n------------------------------------------");
+    }
+
+    @Override
     public void doAction(char selection) {
         switch (selection) {
             case 'W': //What is the player's current goal?

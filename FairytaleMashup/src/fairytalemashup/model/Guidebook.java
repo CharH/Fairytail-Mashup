@@ -21,11 +21,11 @@ public class Guidebook implements Serializable {
     private double challengeScore;
     private String locationDescription;
     private double itemsAvailable;
-    
+
     //cardinality things
     private Map map;
     private Game game;
-    
+
     //default constructor function
     public Guidebook() {
     }
@@ -94,7 +94,7 @@ public class Guidebook implements Serializable {
     public void setGame(Game game) {
         this.game = game;
     }
-    
+
     //equals() and hashCode() functions
     @Override
     public int hashCode() {

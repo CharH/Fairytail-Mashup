@@ -11,6 +11,4 @@ package fairytalemashup.control;
  */
 public class InventoryControl {
 
-
-
 }

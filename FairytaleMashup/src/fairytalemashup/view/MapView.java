@@ -15,45 +15,48 @@ import fairytalemashup.model.Scene;
  * @author charlottehuyett
  */
 public class MapView extends View {
+
     public MapView() {
-        super ();
-}
+        super();
+    }
+
     @Override
     public void doAction(char selection) {
         return;
     }
 
-    @Override  
+    @Override
     public void display() {
         Location[][] locations = GameControl.getMap();
-        
+
         //Display Title
         System.out.println("\nMap of Fairytale Land");
         //display row of column numbers
         System.out.println("0" + "\t" + "1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5");
-        
-        for ( Location row : locations){
+
+        for (int row = 0; row < locations.length; row++) {
             //display row divider
             System.out.println("-------------------------------------------------");
             //display row number
             System.out.println(row);
-            
-            for (Location column : locations){
+
+            for (int column = 0; column < locations[row].length; column++) {
                 //display column divider
-                System.out.println("\t"+"|*|");
+                System.out.println("\t" + "|");
                 Location location = locations[row][column];
                 //if location has been visited, display symbol/name, otherwise ???
                 if (location.isVisited() == true) {
-                    System.out.println(location.getMapSymbol());
-                } else{
+                    Scene scene = location.getScene();
+                    System.out.println(scene.getMapSymbol());
+                } else {
                     System.out.println("?????");
                 }
                 //if column end display divider
-                if (column == locations.length){
-                    System.out.println("\t"+"|*|");
-                    
+                if (column == locations.length) {
+                    System.out.println("\t" + "|");
+
                 }
-                
+
             }
             //display ending row divider
             System.out.println("-------------------------------------------------");

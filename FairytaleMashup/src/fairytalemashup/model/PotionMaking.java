@@ -19,7 +19,7 @@ public class PotionMaking extends Location implements Serializable {
     private String ingredients;
     private double setTimer;
     //cardinality things
-    private Location[] locations;
+    private Location[][] locations;
 
     //default constructor function
     public PotionMaking() {
@@ -50,11 +50,11 @@ public class PotionMaking extends Location implements Serializable {
         this.setTimer = setTimer;
     }
 
-    public Location[] getLocation() {
+    public Location[][] getLocation() {
         return locations;
     }
 
-    public void setLocation(Location[] location) {
+    public void setLocation(Location[][] location) {
         this.locations = location;
     }
 
@@ -95,8 +95,7 @@ public class PotionMaking extends Location implements Serializable {
 
     @Override
     public String toString() {
-        return "PotionMaking{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
-                + ", recipes=" + recipes + ", ingredients=" + ingredients + ", setTimer=" + setTimer + '}';
+        return "PotionMaking{" + "recipes=" + recipes + ", ingredients=" + ingredients + ", setTimer=" + setTimer + ", locations=" + locations + '}';
     }
 
 }

@@ -20,7 +20,8 @@ public class Spellcasting extends Location implements Serializable {
     private String userAction;
 
     //cardinality things
-    private Location[] locations;
+    private Location[][] locations;
+
     //default constructor function
     public Spellcasting() {
     }
@@ -50,11 +51,11 @@ public class Spellcasting extends Location implements Serializable {
         this.userAction = userAction;
     }
 
-    public Location[] getLocation() {
+    public Location[][] getLocation() {
         return locations;
     }
 
-    public void setLocation(Location[] location) {
+    public void setLocation(Location[][] location) {
         this.locations = location;
     }
 
@@ -95,8 +96,7 @@ public class Spellcasting extends Location implements Serializable {
     //toString()
     @Override
     public String toString() {
-        return "Spellcasting{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", locationName=" + locationName + ", locationDescription=" + locationDescription
-                + ", spellBook=" + spellBook + ", userVoice=" + userVoice + ", userAction=" + userAction + '}';
+        return "Spellcasting{" + "spellBook=" + spellBook + ", userVoice=" + userVoice + ", userAction=" + userAction + ", locations=" + locations + '}';
     }
 
 }

@@ -13,26 +13,26 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
-     public GameMenuView(){
+    public GameMenuView() {
         super("\n"
-            + "\n------------------------------------------"
-            + "\n| Game Menu                              |"
-            + "\n------------------------------------------"
-            + "\nV - View Map"
-            + "\nM - Move to New Location"
-            + "\nE - Explore Location"
-            + "\nI - View Inventory"
-            + "\nR - Read Story Guidebook"
-            + "\nT - Talk with NPC"
-            + "\nG - Gather Resources"
-            + "\nB - Brew a Potion"
-            + "\nC - Cast a Spell"
-            + "\nH - Get Help"
-            + "\nQ - Quit Game"
-            + "\n------------------------------------------");
-     }
-    
-    @Override 
+                + "\n------------------------------------------"
+                + "\n| Game Menu                              |"
+                + "\n------------------------------------------"
+                + "\nV - View Map"
+                + "\nM - Move to New Location"
+                + "\nE - Explore Location"
+                + "\nI - View Inventory"
+                + "\nR - Read Story Guidebook"
+                + "\nT - Talk with NPC"
+                + "\nG - Gather Resources"
+                + "\nB - Brew a Potion"
+                + "\nC - Cast a Spell"
+                + "\nH - Get Help"
+                + "\nQ - Quit Game"
+                + "\n------------------------------------------");
+    }
+
+    @Override
     public void display() {
         char selection = ' ';
         do {
@@ -45,7 +45,7 @@ public class GameMenuView extends View {
 
     }
 
-    @Override    
+    @Override
     public void doAction(char selection) {
         switch (selection) {
             case 'V': //view map
