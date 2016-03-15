@@ -51,6 +51,10 @@ public class GameControl {
     public static Location[][] getMap() {
         return FairytaleMashup.getCurrentGame().getMap().getLocation();
     }
+    
+    public static Guidebook[] getSortedGuidebookList() {
+        return FairytaleMashup.getCurrentGame().getGuidebook();
+    }
 
     public enum Item {
         shrooms,
@@ -139,36 +143,42 @@ public class GameControl {
         rumplestiltskin,
         goldenGoose,
         vasilisaTheBeautiful;
-    }
+    }    
+    
 
     public static Guidebook[] createGuidebook() {
         Guidebook[] guidebook = new Guidebook[5];
 
         Guidebook snowWhite = new Guidebook();
+        snowWhite.setFairytaleTitle("Snow White");
         snowWhite.setFairytaleDescription("Pretty girl gets hunted down by her crazy stepmom.");
         snowWhite.setChallengesAvailable("Carry a message to her boyfriend.");
         snowWhite.setChallengesCompleted(0);
         guidebook[Fairytales.snowWhite.ordinal()] = snowWhite;
 
         Guidebook sleepingBeauty = new Guidebook();
+        sleepingBeauty.setFairytaleTitle("Sleeping Beauty");
         sleepingBeauty.setFairytaleDescription("Pretty girl gets cursed by lonely sorceress.");
         sleepingBeauty.setChallengesAvailable("Make friends with the sorceress.");
         sleepingBeauty.setChallengesCompleted(0);
         guidebook[Fairytales.sleepingBeauty.ordinal()] = sleepingBeauty;
 
         Guidebook rumplestiltskin = new Guidebook();
+        rumplestiltskin.setFairytaleTitle("Rumplestiltskin");
         rumplestiltskin.setFairytaleDescription("Crazy dude wants to adopt.");
         rumplestiltskin.setChallengesAvailable("Beat him at a game.");
         rumplestiltskin.setChallengesCompleted(0);
         guidebook[Fairytales.rumplestiltskin.ordinal()] = rumplestiltskin;
 
         Guidebook goldenGoose = new Guidebook();
+        goldenGoose.setFairytaleTitle("Golden Goose");
         goldenGoose.setFairytaleDescription("Boy is nice to strangers and makes girl laugh.");
         goldenGoose.setChallengesAvailable("Be nice to strangers and feed them.");
         goldenGoose.setChallengesCompleted(0);
         guidebook[Fairytales.goldenGoose.ordinal()] = goldenGoose;
 
         Guidebook vasilisaTheBeautiful = new Guidebook();
+        vasilisaTheBeautiful.setFairytaleTitle("Vasilisa The Beautiful");
         vasilisaTheBeautiful.setFairytaleDescription("Pretty girl is sent to creepy neighbors house for a match.");
         vasilisaTheBeautiful.setChallengesAvailable("Help out Baba Yaga.");
         vasilisaTheBeautiful.setChallengesCompleted(0);

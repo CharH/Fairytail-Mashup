@@ -5,6 +5,10 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.control.GameControl;
+import fairytalemashup.control.GameControl.Fairytales;
+import fairytalemashup.model.Guidebook;
+
 /**
  *
  * @author KatieSimons
@@ -23,7 +27,7 @@ public class GuidebookView extends View {
                 + "\nE - Exit Menu"
                 + "\n------------------------------------------");
     }
-
+    
     @Override
     public void doAction(char selection) {
         switch (selection) {
@@ -47,9 +51,20 @@ public class GuidebookView extends View {
         }
     }
 
-    private void displayFairyTaleDescriptions() {
-        System.out.println("\n***display FairyTale Descriptions stub function called.***");
+    private static void displayFairyTaleDescriptions() {
+        Guidebook[] guidebook = GameControl.getSortedGuidebookList();
+        //create header
+        System.out.println("\nFairytale Descriptions");
+        System.out.println("Title" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" 
+                + "Description");
+        //display item info
+        for (Guidebook Guidebook : guidebook) {
+            System.out.println(Guidebook.getFairytaleTitle() + "/t " + "\t" 
+                    + Guidebook.getFairytaleDescription());       
+        }
     }
+    
+   
 
     private void displayCompletedChallenges() {
         System.out.println("\n***display Completed Challenges stub function called.***");

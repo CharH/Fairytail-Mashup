@@ -78,6 +78,9 @@ public class GameMenuView extends View {
             case 'H': //view help menu
                 this.displayHelpMenu();
                 break;
+            case 'S': //Search Fairytales
+                this.displaySearch();
+                break;    
             case 'Q': //exit to main menu
                 return;
             default:
@@ -137,6 +140,10 @@ public class GameMenuView extends View {
 
         //display the help menu view
         helpMenuView.display();
+    }
+
+    private void displaySearch() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -20,7 +20,7 @@ public class InventoryMenuView extends View {
     public InventoryMenuView() {
         super("\n"
                 + "\n------------------------------------------"
-                + "\n| Inventory Menu                              |"
+                + "\n| Inventory Menu                         |"
                 + "\n------------------------------------------"
                 + "\nP - Potions Pack"
                 + "\nS - Spellbook"
@@ -71,8 +71,8 @@ public class InventoryMenuView extends View {
                 + "ReUsable");
         //display item info
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "/t   "
-                    + inventoryItem.getAmountAvailable() + "\t   "
+            System.out.println(inventoryItem.getDescription() + "/t        "
+                    + inventoryItem.getAmountAvailable() + "\t        "
                     + inventoryItem.isMultiUse());
         }
     }
