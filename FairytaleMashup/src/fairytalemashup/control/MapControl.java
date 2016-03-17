@@ -6,10 +6,13 @@
 package fairytalemashup.control;
 
 import fairytalemashup.FairytaleMashup;
+import fairytalemashup.exceptions.MapControlException;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
+import fairytalemashup.model.Player;
 import fairytalemashup.model.Scene;
+import java.util.Scanner;
 
 /**
  *
@@ -17,16 +20,18 @@ import fairytalemashup.model.Scene;
  */
 public class MapControl {
 
-    public static Map createMap() {
+    public static Map createMap()throws MapControlException {
         //create the map
         Map map = new Map(6, 6);
         //creat a list of the different scenes in teh game
         Scene[] scenes = createScenes();
         //assigne scenes to different locations on map
         assignScenesToLocations(map, scenes);
-
+        
         return map;
+               
     }
+
 
     public enum SceneType {
         start,
@@ -328,4 +333,6 @@ public class MapControl {
     public static void moveActorsToStartingLocation(Map map) {
         System.out.println("***moveActorsToStart function called.");
     }
+    
+
 }

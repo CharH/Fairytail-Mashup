@@ -6,6 +6,7 @@
 package fairytalemashup.control;
 
 import fairytalemashup.FairytaleMashup;
+import fairytalemashup.exceptions.MapControlException;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.Guidebook;
 import fairytalemashup.model.InventoryItem;
@@ -25,7 +26,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player)throws MapControlException {
 
         Game game = new Game(); //create new game
         FairytaleMashup.setCurrentGame(game); //save game
@@ -41,6 +42,7 @@ public class GameControl {
 
         Map map = MapControl.createMap(); //create map and locations
         game.setMap(map); //save map in game
+        
 
     }
 

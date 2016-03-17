@@ -9,6 +9,7 @@ import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Scene;
+import java.util.Scanner;
 
 /*
  *
@@ -65,4 +66,33 @@ public class MapView extends View {
         //display ending row divider
         System.out.println("\n-------------------------------------------------");
     }
+    
+    @Override
+        public String getInput() {
+        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        String value = null;
+
+        boolean valid = false; //set flag to invalid value entered
+        while (!valid) { //while a valid coordinants has not been retrieved
+            //prompt for the player's coordinants
+            System.out.println("\n Enter your Coordinants by entering two numbers, separated by a comma");
+
+            value = keyboard.nextLine(); //get coordinants from keyboard
+            value = value.trim(); //trim off the exess blanks
+            int findComma = value.indexOf(",");
+            int x = Integer.parseInt(value.substring(0, findComma));
+            int y = Integer.parseInt(value.substring(findComma,findComma+2));
+            //if the coordinant is invalid (less than one character in length)
+            
+            /*value.useDelimiter (", "); 
+            int x = value.nextInt(); 
+            int y = value.nextInt();*/
+            if (value.length() < 1) {
+                System.out.println("Invalid value - the value can not be blank.");
+                continue; //repeat again
+            }
+            break;
+        }
+        return value; //
+     }
 }

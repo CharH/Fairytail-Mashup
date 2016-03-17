@@ -55,7 +55,7 @@ public class GuidebookView extends View {
         Guidebook[] guidebook = GameControl.getSortedGuidebookList();
         //create header
         System.out.println("\nFairytale Descriptions");
-        System.out.println("Title" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" 
+        System.out.println("Title" + "\t" + "\t"  
                 + "Description");
         //display item info
         for (Guidebook Guidebook : guidebook) {

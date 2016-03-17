@@ -95,10 +95,13 @@ public class GameMenuView extends View {
         //display map view
         mapView.display();
     }
-
+    
     private void movePlayer() {
-        System.out.println("***movePlayer function called");
+       MapView mapView = new MapView();
+       String coordinants = mapView.getInput();
+       System.out.println("\n Player attempted to move to space " + coordinants + " but failed.");
     }
+    
 
     private void exploreLocation() {
         System.out.println("***exploreLocation function called");

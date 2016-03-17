@@ -7,6 +7,7 @@ package fairytalemashup.view;
 
 import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
+import fairytalemashup.exceptions.MapControlException;
 
 /**
  *
@@ -51,10 +52,18 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
+        try {
         GameControl.createNewGame(FairytaleMashup.getPlayer());
+        
+        }
+        catch(MapControlException me){
+            System.out.println(me.getMessage());
+        }
 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
+        
+        
     }
 
     private void startExistingGame() {
