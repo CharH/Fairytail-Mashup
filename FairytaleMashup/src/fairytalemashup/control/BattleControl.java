@@ -5,6 +5,7 @@
  */
 package fairytalemashup.control;
 
+import fairytalemashup.exceptions.BattleControlException;
 import fairytalemashup.model.Player;
 
 /**
@@ -35,10 +36,10 @@ public class BattleControl {
 
     }
 
-    public int calcBattleResult(int playerAttack, int playerDefense, int enemyAttack) {
-        if (playerAttack < 0) {
+    public int calcBattleResult(int playerAttackDamage, int playerDefense, int enemyAttack) throws BattleControlException {
+        /*if (playerAttack < 0) {
             return 000;
-        }
+        }*/
         if (playerDefense < 0 || playerDefense > 5) {
             return 000;
         }
@@ -46,7 +47,7 @@ public class BattleControl {
             return 000;
         }
 
-        int battleResult = (playerAttack * playerDefense) - enemyAttack;
+        int battleResult = (playerAttackDamage * playerDefense) - enemyAttack;
 
         return battleResult;
     }
