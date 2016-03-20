@@ -116,7 +116,13 @@ public class SpellbookView extends View {
         boolean viable = MagicMakingControl.castable(chosenSpell);
         if (viable == true) {
             try {
-                int playerTone = Integer.parseInt(getInput(tonePrompt));
+                int playerTone = 0;
+                boolean valid = false;
+                while (valid == false) {
+                    playerTone = Integer.parseInt(getInput(tonePrompt));
+                    valid = MagicMakingControl.inputCheck(playerTone);
+                    continue;
+                }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
@@ -137,7 +143,13 @@ public class SpellbookView extends View {
         boolean viable = MagicMakingControl.castable(chosenSpell);
         if (viable == true) {
             try {
-                int playerTone = Integer.parseInt(getInput(tonePrompt));
+                int playerTone = 0;
+                boolean valid = false;
+                while (valid == false) {
+                    playerTone = Integer.parseInt(getInput(tonePrompt));
+                    valid = MagicMakingControl.inputCheck(playerTone);
+                    continue;
+                }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
@@ -158,7 +170,13 @@ public class SpellbookView extends View {
         boolean viable = MagicMakingControl.castable(chosenSpell);
         if (viable == true) {
             try {
-                int playerTone = Integer.parseInt(getInput(tonePrompt));
+                int playerTone = 0;
+                boolean valid = false;
+                while (valid == false) {
+                    playerTone = Integer.parseInt(getInput(tonePrompt));
+                    valid = MagicMakingControl.inputCheck(playerTone);
+                    continue;
+                }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
