@@ -60,4 +60,27 @@ public abstract class View implements InterfaceView {
         }
         return value; //
     }
+    public String getInput(String s) {
+        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        String value = null;
+
+        boolean valid = false; //set flag to invalid value entered
+        while (!valid) { //while a valid name has not been retrieved
+            //prompt for the player's name
+            System.out.println("\n" + s);
+
+            value = keyboard.nextLine(); //get name from keyboard
+            value = value.trim(); //trim off the exess blanks
+            value = value.toUpperCase(); //make upper case
+
+            //if the name is invalid (less than one character in length)
+            if (value.length() < 1) {
+                System.out.println("Invalid value - the value can not be blank.");
+                continue; //repeat again
+            }
+            break;
+
+        }
+        return value; //
+    }
 }

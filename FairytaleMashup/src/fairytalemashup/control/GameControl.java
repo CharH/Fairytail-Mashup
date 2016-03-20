@@ -14,6 +14,7 @@ import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
 import fairytalemashup.model.Scene;
+import fairytalemashup.model.Spell;
 
 /**
  *
@@ -26,7 +27,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player)throws MapControlException {
+    public static void createNewGame(Player player) throws MapControlException {
 
         Game game = new Game(); //create new game
         FairytaleMashup.setCurrentGame(game); //save game
@@ -42,7 +43,9 @@ public class GameControl {
 
         Map map = MapControl.createMap(); //create map and locations
         game.setMap(map); //save map in game
-        
+
+        Spell[] spells = GameControl.buildSpellbook(); //create guidebook
+        game.setSpellbook(spells); //save spellbook to game
 
     }
 
@@ -53,9 +56,13 @@ public class GameControl {
     public static Location[][] getMap() {
         return FairytaleMashup.getCurrentGame().getMap().getLocation();
     }
-    
+
     public static Guidebook[] getSortedGuidebookList() {
         return FairytaleMashup.getCurrentGame().getGuidebook();
+    }
+
+    public static Spell[] getSortedSpellList() {
+        return FairytaleMashup.getCurrentGame().getSpellbook();
     }
 
     public enum Item {
@@ -145,8 +152,7 @@ public class GameControl {
         rumplestiltskin,
         goldenGoose,
         vasilisaTheBeautiful;
-    }    
-    
+    }
 
     public static Guidebook[] createGuidebook() {
         Guidebook[] guidebook = new Guidebook[5];
@@ -189,4 +195,56 @@ public class GameControl {
         return guidebook;
     }
 
+    public enum Spells {
+        fireball,
+        hydroblast,
+        soundbomb,
+        invisibility;
+    }
+
+    public static Spell[] buildSpellbook() {
+        Spell[] spell = new Spell[4];
+
+        Spell fireball = new Spell();
+        fireball.setName("Fireball");
+        fireball.setDescription("Firey hot destruction.");
+        fireball.setDamages(30);
+        fireball.setPiecesCollected(3);
+        fireball.setMultiUse(true);
+        fireball.setPiecesRequired(3);
+        fireball.setRenewalTime(120);
+        spell[Spells.fireball.ordinal()] = fireball;
+
+        Spell hydroblast = new Spell();
+        hydroblast.setName("Hydroblast");
+        hydroblast.setDescription("Ice cold blast of water.");
+        hydroblast.setDamages(30);
+        hydroblast.setPiecesCollected(3);
+        hydroblast.setMultiUse(true);
+        hydroblast.setPiecesRequired(3);
+        hydroblast.setRenewalTime(120);
+        spell[Spells.hydroblast.ordinal()] = hydroblast;
+
+        Spell soundbomb = new Spell();
+        soundbomb.setName("Soundbomb");
+        soundbomb.setDescription("Stunningly loud blast of sound.");
+        soundbomb.setDamages(10);
+        soundbomb.setPiecesCollected(2);
+        soundbomb.setMultiUse(true);
+        soundbomb.setPiecesRequired(3);
+        soundbomb.setRenewalTime(120);
+        spell[Spells.soundbomb.ordinal()] = soundbomb;
+
+        Spell invisibility = new Spell();
+        invisibility.setName("Invisibility");
+        invisibility.setDescription("Hide things or people.");
+        invisibility.setDamages(0);
+        invisibility.setPiecesCollected(1);
+        invisibility.setMultiUse(true);
+        invisibility.setPiecesRequired(3);
+        invisibility.setRenewalTime(180);
+        spell[Spells.invisibility.ordinal()] = invisibility;
+
+        return spell;
+    }
 }

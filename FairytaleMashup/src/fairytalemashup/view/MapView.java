@@ -66,9 +66,9 @@ public class MapView extends View {
         //display ending row divider
         System.out.println("\n-------------------------------------------------");
     }
-    
+
     @Override
-        public String getInput() {
+    public String getInput() {
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
         String value = null;
 
@@ -80,19 +80,18 @@ public class MapView extends View {
             value = keyboard.nextLine(); //get coordinants from keyboard
             value = value.trim(); //trim off the exess blanks
             int findComma = value.indexOf(",");
-            int numberThing = findComma+1;
-            int numberThing2 = findComma + 2; 
-            
+            int numberThing = findComma + 1;
+            int numberThing2 = findComma + 2;
+
             try {
-               
-            int x = Integer.parseInt(value.substring(0, findComma));
-            int y = Integer.parseInt(value.substring(numberThing,numberThing2));
-            } catch (NumberFormatException nf){
+
+                int x = Integer.parseInt(value.substring(0, findComma));
+                int y = Integer.parseInt(value.substring(numberThing, numberThing2));
+            } catch (NumberFormatException nf) {
                 System.out.println("****ERROR: You must enter two numbers, seperated by a comma!");
             }
-            
+
             //if the coordinant is invalid (less than one character in length)
-            
             /*value.useDelimiter (", "); 
             int x = value.nextInt(); 
             int y = value.nextInt();*/
@@ -103,5 +102,5 @@ public class MapView extends View {
             break;
         }
         return value; //
-     }
+    }
 }

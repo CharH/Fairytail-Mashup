@@ -71,7 +71,7 @@ public class InventoryMenuView extends View {
                 + "ReUsable");
         //display item info
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "/t        "
+            System.out.println(inventoryItem.getDescription() + "\t        "
                     + inventoryItem.getAmountAvailable() + "\t        "
                     + inventoryItem.isMultiUse());
         }

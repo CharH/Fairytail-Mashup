@@ -16,10 +16,11 @@ public class Spell extends InventoryItem implements Serializable {
 
     //class instance variables
     private String spellType;
-    private double piecesCollected;
-    private double piecesRequired;
-    private double renewalTime;
-    private double damages;
+    private int piecesCollected;
+    private int piecesRequired;
+    private int renewalTime;
+    private int damages;
+    private String name;
 
     public Spell() {
     }
@@ -32,52 +33,56 @@ public class Spell extends InventoryItem implements Serializable {
         this.spellType = spellType;
     }
 
-    public double getPiecesCollected() {
+    public int getPiecesCollected() {
         return piecesCollected;
     }
 
-    public void setPiecesCollected(double piecesCollected) {
+    public void setPiecesCollected(int piecesCollected) {
         this.piecesCollected = piecesCollected;
     }
 
-    public double getPiecesRequired() {
+    public int getPiecesRequired() {
         return piecesRequired;
     }
 
-    public void setPiecesRequired(double piecesRequired) {
+    public void setPiecesRequired(int piecesRequired) {
         this.piecesRequired = piecesRequired;
     }
 
-    public double getRenewalTime() {
+    public int getRenewalTime() {
         return renewalTime;
     }
 
-    public void setRenewalTime(double renewalTime) {
+    public void setRenewalTime(int renewalTime) {
         this.renewalTime = renewalTime;
     }
 
-    public double getDamages() {
+    public int getDamages() {
         return damages;
     }
 
-    public void setDamages(double damages) {
+    public void setDamages(int damages) {
         this.damages = damages;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.spellType);
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.piecesCollected) ^ (Double.doubleToLongBits(this.piecesCollected) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.piecesRequired) ^ (Double.doubleToLongBits(this.piecesRequired) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.renewalTime) ^ (Double.doubleToLongBits(this.renewalTime) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.damages) ^ (Double.doubleToLongBits(this.damages) >>> 32));
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.spellType);
+        hash = 61 * hash + this.piecesCollected;
+        hash = 61 * hash + this.piecesRequired;
+        hash = 61 * hash + this.renewalTime;
+        hash = 61 * hash + this.damages;
+        hash = 61 * hash + Objects.hashCode(this.name);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "SpellBook{" + "spellType=" + spellType + ", piecesCollected=" + piecesCollected + ", piecesRequired=" + piecesRequired + ", renewalTime=" + renewalTime + ", damages=" + damages + '}';
     }
 
     @Override
@@ -92,22 +97,30 @@ public class Spell extends InventoryItem implements Serializable {
             return false;
         }
         final Spell other = (Spell) obj;
-        if (Double.doubleToLongBits(this.piecesCollected) != Double.doubleToLongBits(other.piecesCollected)) {
+        if (this.piecesCollected != other.piecesCollected) {
             return false;
         }
-        if (Double.doubleToLongBits(this.piecesRequired) != Double.doubleToLongBits(other.piecesRequired)) {
+        if (this.piecesRequired != other.piecesRequired) {
             return false;
         }
-        if (Double.doubleToLongBits(this.renewalTime) != Double.doubleToLongBits(other.renewalTime)) {
+        if (this.renewalTime != other.renewalTime) {
             return false;
         }
-        if (Double.doubleToLongBits(this.damages) != Double.doubleToLongBits(other.damages)) {
+        if (this.damages != other.damages) {
             return false;
         }
         if (!Objects.equals(this.spellType, other.spellType)) {
             return false;
         }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Spell{" + "spellType=" + spellType + ", piecesCollected=" + piecesCollected + ", piecesRequired=" + piecesRequired + ", renewalTime=" + renewalTime + ", damages=" + damages + ", name=" + name + '}';
     }
 
 }

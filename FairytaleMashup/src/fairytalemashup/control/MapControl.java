@@ -20,18 +20,17 @@ import java.util.Scanner;
  */
 public class MapControl {
 
-    public static Map createMap()throws MapControlException {
+    public static Map createMap() throws MapControlException {
         //create the map
         Map map = new Map(6, 6);
         //creat a list of the different scenes in teh game
         Scene[] scenes = createScenes();
         //assigne scenes to different locations on map
         assignScenesToLocations(map, scenes);
-        
-        return map;
-               
-    }
 
+        return map;
+
+    }
 
     public enum SceneType {
         start,
@@ -333,6 +332,5 @@ public class MapControl {
     public static void moveActorsToStartingLocation(Map map) {
         System.out.println("***moveActorsToStart function called.");
     }
-    
 
 }

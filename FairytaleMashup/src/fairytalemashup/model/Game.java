@@ -22,6 +22,7 @@ public class Game implements Serializable {
     public Player player;
     private Guidebook[] guidebook;
     private Map map;
+    private Spell[] spells;
 
     public Game() {
     }
@@ -106,6 +107,14 @@ public class Game implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public void setSpellbook(Spell[] spells) {
+        this.spells = spells;
+    }
+
+    public Spell[] getSpellbook() {
+        return spells;
     }
 
 }

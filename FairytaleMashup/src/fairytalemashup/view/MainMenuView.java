@@ -53,17 +53,15 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         try {
-        GameControl.createNewGame(FairytaleMashup.getPlayer());
-        
-        }
-        catch(MapControlException me){
+            GameControl.createNewGame(FairytaleMashup.getPlayer());
+
+        } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }
 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-        
-        
+
     }
 
     private void startExistingGame() {
