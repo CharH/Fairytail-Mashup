@@ -5,6 +5,7 @@
  */
 package fairytalemashup.model;
 
+import fairytalemashup.exceptions.BattleControlException;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,7 +24,8 @@ public class Battle extends Location implements Serializable {
     private Location[][] locations;
 
     //default constructor function
-    public Battle() {
+    public Battle() throws BattleControlException {
+        throw new BattleControlException("****ERROR****");
     }
 
     //getter and setter functions
