@@ -5,8 +5,12 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -16,6 +20,8 @@ import java.util.Scanner;
 public class StartProgramView {
 
     private String promptMessage;
+    private final BufferedReader keyboard = FairytaleMashup.getInFile();
+    private final PrintWriter console = FairytaleMashup.getOutFile();
 
     public StartProgramView() {
         this.promptMessage = "\nPlease enter your name: ";
@@ -25,7 +31,7 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
                 "\n****************************************************"
                 + "\n*                                                  *"
                 + "\n* This is the Fairytale Mashup Game.               *"
@@ -54,7 +60,7 @@ public class StartProgramView {
         );
     }
 
-    public void displayStartProgramView() {
+    public void displayStartProgramView() throws IOException {
         boolean done = false; // set flag to not done
         do {
             //prompt and get player's name
@@ -67,21 +73,21 @@ public class StartProgramView {
         } while (!done);
     }
 
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    private String getPlayersName() throws IOException {
+
         String value = "";
 
         boolean valid = false; //set flag to invalid value entered
         while (!valid) { //while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println(this.promptMessage);
+            this.console.println(this.promptMessage);
 
-            value = keyboard.nextLine(); //get name from keyboard
+            value = this.keyboard.readLine(); //get name from keyboard
             value = value.trim(); //trim off the exess blanks
 
             //if the name is invalid (less than one character in length)
             if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
+                ErrorView.display(this.getClass().getName(),"Invalid value - the value can not be blank.");
                 continue; //repeat again
             }
             valid = true; //set flag to end repetition
@@ -92,7 +98,7 @@ public class StartProgramView {
     private boolean doAction(String playersName) {
 
         if (playersName.length() < 2) {
-            System.out.println("Invalid players name:"
+           ErrorView.display(this.getClass().getName(),"Invalid players name:"
                     + "Your name is too short! Why don't you try something longer?");
             return false;
         }
@@ -100,7 +106,7 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
 
         if (player == null) { //if unsuccessful
-            System.out.println("\n Error creating the player.");
+            ErrorView.display(this.getClass().getName(),"\n Error creating the player.");
             return false;
         }
         this.displayNextView(player);
@@ -108,7 +114,7 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n==========================================="
+            this.console.println("\n==========================================="
                 + "\n Welcome to Fairytale Land " + player.getName()
                 + "\n We hope you have a magical time playing!"
                 + "\n==========================================="

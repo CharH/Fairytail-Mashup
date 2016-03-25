@@ -46,7 +46,7 @@ public class MainMenuView extends View {
             case 'E': //exit the game
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
@@ -56,7 +56,7 @@ public class MainMenuView extends View {
             GameControl.createNewGame(FairytaleMashup.getPlayer());
 
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            this.console.println(me.getMessage());
         }
 
         GameMenuView gameMenu = new GameMenuView();
@@ -65,7 +65,20 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("***startExistingGame function called");
+        //this.console.println("***ExistingGame function called");
+        this.console.println("\n\nEnter the file path for the file where the game " +
+                 " is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.getExistingGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(),"MainMenuView");
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -77,6 +90,15 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("***saveGame function called");
+       // this.console.println("***saveGame function called");
+        this.console.println("\n\nEnter the file path for the file where the game " +
+                 "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.saveGame(FairytaleMashup.getCurrentGame(), filePath);
+        } catch(Exception ex) {
+            ErrorView.display(this.getClass().getName(),"MainMenuView");
+        }
     }
 }

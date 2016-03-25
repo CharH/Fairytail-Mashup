@@ -5,7 +5,13 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.FairytaleMashup;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +20,8 @@ import java.util.Scanner;
 public abstract class View implements InterfaceView {
 
     protected String displayMessage;
+    protected final BufferedReader keyboard = FairytaleMashup.getInFile();
+    protected final PrintWriter console = FairytaleMashup.getOutFile();
 
     public View() {
         super();
@@ -38,21 +46,25 @@ public abstract class View implements InterfaceView {
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+ 
         String value = null;
 
         boolean valid = false; //set flag to invalid value entered
         while (!valid) { //while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
 
-            value = keyboard.nextLine(); //get name from keyboard
+            try {
+                value = this.keyboard.readLine(); //get name from keyboard
+            } catch (IOException ex) {
+                this.console.println("Error Reading Inpunt");
+            }
             value = value.trim(); //trim off the exess blanks
             value = value.toUpperCase(); //make upper case
 
             //if the name is invalid (less than one character in length)
             if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
+                this.console.println("Invalid value - the value can not be blank.");
                 continue; //repeat again
             }
             break;
@@ -60,22 +72,21 @@ public abstract class View implements InterfaceView {
         }
         return value; //
     }
-    public String getInput(String s) {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    public String getInput(String s) throws IOException {
         String value = null;
 
         boolean valid = false; //set flag to invalid value entered
         while (!valid) { //while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("\n" + s);
+            this.console.println("\n" + s);
 
-            value = keyboard.nextLine(); //get name from keyboard
+            value = this.keyboard.readLine(); //get name from keyboard
             value = value.trim(); //trim off the exess blanks
             value = value.toUpperCase(); //make upper case
 
             //if the name is invalid (less than one character in length)
             if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
+                this.console.println("Invalid value - the value can not be blank.");
                 continue; //repeat again
             }
             break;

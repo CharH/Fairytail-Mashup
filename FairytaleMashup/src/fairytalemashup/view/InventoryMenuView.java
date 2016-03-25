@@ -9,7 +9,10 @@ import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.InventoryItem;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,19 +45,25 @@ public class InventoryMenuView extends View {
             case 'R': //display resources
                 this.displayResources();
                 break;
-            case 'W': //view weapons
+            case 'W': {
+            try {
+                //view weapons
                 this.displayWeapons();
+            } catch (IOException ex) {
+                Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'E': //exit the menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
 
     private void displayPotionsPack() {
-        System.out.println("\n***display PotionsPack stub function called.***");
+        this.console.println("\n***display PotionsPack stub function called.***");
     }
 
     private void displaySpells() {
@@ -65,19 +74,19 @@ public class InventoryMenuView extends View {
     private void displayResources() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         //create header
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t"
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t"
                 + "Quantity" + "\t"
                 + "ReUsable");
         //display item info
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "\t        "
+            this.console.println(inventoryItem.getDescription() + "\t        "
                     + inventoryItem.getAmountAvailable() + "\t        "
                     + inventoryItem.isMultiUse());
         }
     }
 
-    private void displayWeapons() {
+    private void displayWeapons() throws IOException {
         //create WeaponsView object
         WeaponsView weaponsView = new WeaponsView();
 
