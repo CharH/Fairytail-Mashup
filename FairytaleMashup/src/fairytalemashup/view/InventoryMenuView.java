@@ -9,7 +9,10 @@ import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.InventoryItem;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,8 +45,14 @@ public class InventoryMenuView extends View {
             case 'R': //display resources
                 this.displayResources();
                 break;
-            case 'W': //view weapons
+            case 'W': {
+            try {
+                //view weapons
                 this.displayWeapons();
+            } catch (IOException ex) {
+                Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'E': //exit the menu
                 return;
@@ -77,7 +86,7 @@ public class InventoryMenuView extends View {
         }
     }
 
-    private void displayWeapons() {
+    private void displayWeapons() throws IOException {
         //create WeaponsView object
         WeaponsView weaponsView = new WeaponsView();
 

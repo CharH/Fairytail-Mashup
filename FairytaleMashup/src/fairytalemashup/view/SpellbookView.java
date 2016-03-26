@@ -10,6 +10,9 @@ import fairytalemashup.control.GameControl.Spells;
 import fairytalemashup.control.MagicMakingControl;
 import fairytalemashup.exceptions.MagicControlException;
 import fairytalemashup.model.Spell;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,17 +63,41 @@ public class SpellbookView extends View {
 
         //need this to be dynamic and adjust to available spells.
         switch (selection) {
-            case 'F': //view potions pack
+            case 'F': {
+            try {
+                //view potions pack
                 this.castFireball();
+            } catch (IOException ex) {
+                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case 'H': //view spellbook
+            case 'H': {
+            try {
+                //view spellbook
                 this.castHydroblast();
+            } catch (IOException ex) {
+                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case 'S': //display resources
+            case 'S': {
+            try {
+                //display resources
                 this.castSoundbomb();
+            } catch (IOException ex) {
+                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case 'I': //view weapons
+            case 'I': {
+            try {
+                //view weapons
                 this.castInvisibility();
+            } catch (IOException ex) {
+                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'E': //exit the menu
                 return;
@@ -83,7 +110,7 @@ public class SpellbookView extends View {
     String tonePrompt = "Would you like to [1] whisper, [2] speak, or [3] yell the spell?";
     String actionPrompt = "Would you like to [1] stand still, [2] wave your arms, or [3]dance while casting the spell?";
 
-    private void castFireball() {
+    private void castFireball() throws IOException {
         Spell[] spells = GameControl.getSortedSpellList();
         Spell chosenSpell = spells[Spells.fireball.ordinal()];
         boolean viable = MagicMakingControl.castable(chosenSpell);
@@ -110,7 +137,7 @@ public class SpellbookView extends View {
         return;
     }
 
-    private void castHydroblast() {
+    private void castHydroblast() throws IOException {
         Spell[] spells = GameControl.getSortedSpellList();
         Spell chosenSpell = spells[Spells.hydroblast.ordinal()];
         boolean viable = MagicMakingControl.castable(chosenSpell);
@@ -137,7 +164,7 @@ public class SpellbookView extends View {
         return;
     }
 
-    private void castSoundbomb() {
+    private void castSoundbomb() throws IOException {
         Spell[] spells = GameControl.getSortedSpellList();
         Spell chosenSpell = spells[Spells.soundbomb.ordinal()];
         boolean viable = MagicMakingControl.castable(chosenSpell);
@@ -164,7 +191,7 @@ public class SpellbookView extends View {
         return;
     }
 
-    private void castInvisibility() {
+    private void castInvisibility() throws IOException {
         Spell[] spells = GameControl.getSortedSpellList();
         Spell chosenSpell = spells[Spells.invisibility.ordinal()];
         boolean viable = MagicMakingControl.castable(chosenSpell);

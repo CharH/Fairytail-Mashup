@@ -5,8 +5,12 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -16,6 +20,8 @@ import java.util.Scanner;
 public class StartProgramView {
 
     private String promptMessage;
+    private final BufferedReader keyboard = FairytaleMashup.getInFile();
+    private final PrintWriter console = FairytaleMashup.getOutFile();
 
     public StartProgramView() {
         this.promptMessage = "\nPlease enter your name: ";
@@ -25,7 +31,7 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
                 "\n****************************************************"
                 + "\n*                                                  *"
                 + "\n* This is the Fairytale Mashup Game.               *"
@@ -54,7 +60,7 @@ public class StartProgramView {
         );
     }
 
-    public void displayStartProgramView() {
+    public void displayStartProgramView() throws IOException {
         boolean done = false; // set flag to not done
         do {
             //prompt and get player's name
@@ -67,8 +73,8 @@ public class StartProgramView {
         } while (!done);
     }
 
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    private String getPlayersName() throws IOException {
+
         String value = "";
 
         boolean valid = false; //set flag to invalid value entered
@@ -108,7 +114,7 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n==========================================="
+            this.console.println("\n==========================================="
                 + "\n Welcome to Fairytale Land " + player.getName()
                 + "\n We hope you have a magical time playing!"
                 + "\n==========================================="
