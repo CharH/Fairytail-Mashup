@@ -28,7 +28,7 @@ public class WeaponsView {
   inventory, but that has not yet been set up.*/
     }
 
-    public void displayWeaponsView() throws IOException {
+    public void displayWeaponsView() {
         boolean done = false; // set flag to not done
         do {
             //prompt and get weapon type
