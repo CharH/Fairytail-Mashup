@@ -6,6 +6,7 @@
 package fairytalemashup.control;
 
 import fairytalemashup.FairytaleMashup;
+import fairytalemashup.exceptions.GameControlException;
 import fairytalemashup.exceptions.MapControlException;
 import fairytalemashup.model.Game;
 import fairytalemashup.model.Guidebook;
@@ -15,6 +16,10 @@ import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
 import fairytalemashup.model.Scene;
 import fairytalemashup.model.Spell;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -63,6 +68,28 @@ public class GameControl {
 
     public static Spell[] getSortedSpellList() {
         return FairytaleMashup.getCurrentGame().getSpellbook();
+    }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(currentGame);
+
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) throws GameControlException {
+        Game game = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            game = (Game) input.readObject();
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        FairytaleMashup.setCurrentGame(game);
     }
 
     public enum Item {

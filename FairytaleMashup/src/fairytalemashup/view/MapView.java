@@ -9,7 +9,6 @@ import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Location;
 import fairytalemashup.model.Map;
 import fairytalemashup.model.Scene;
-import java.util.Scanner;
 
 /*
  *
@@ -31,17 +30,17 @@ public class MapView extends View {
         Location[][] locations = GameControl.getMap();
 
         //Display Title
-        System.out.println("\nMap of Fairytale Land");
+        this.console.println("\nMap of Fairytale Land");
         //display row of column numbers
         String spacer = "     ";
         String bigSpacer = "       ";
-        System.out.print(spacer + "0" + bigSpacer + "1" + bigSpacer + "2" + bigSpacer + "3" + bigSpacer + "4" + bigSpacer + "5");
+        this.console.print(spacer + "0" + bigSpacer + "1" + bigSpacer + "2" + bigSpacer + "3" + bigSpacer + "4" + bigSpacer + "5");
 
         for (int row = 0; row < locations.length; row++) {
             //display row divider
-            System.out.print("\n-------------------------------------------------");
+            this.console.print("\n-------------------------------------------------");
             //display row number
-            System.out.print("\n" + row + "|");
+            this.console.print("\n" + row + "|");
 
             for (int column = 0; column < locations[row].length; column++) {
                 //display column divider
@@ -50,57 +49,62 @@ public class MapView extends View {
                 //if location has been visited, display symbol/name, otherwise ???
                 if (location.isVisited() == true) {
                     Scene scene = location.getScene();
-                    System.out.print(scene.getMapSymbol());
+                    this.console.print(scene.getMapSymbol());
                 } else {
-                    System.out.print(" ????? ");
+                    this.console.print(" ????? ");
                 }
-                System.out.print("|");
+                this.console.print("|");
                 //if column end display divider
                 if (column == locations.length) {
-                    System.out.println("|");
+                    this.console.println("|");
                 }
 
             }
 
         }
         //display ending row divider
-        System.out.println("\n-------------------------------------------------");
+        this.console.println("\n-------------------------------------------------");
     }
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+
         String value = null;
 
         boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid coordinants has not been retrieved
-            //prompt for the player's coordinants
-            System.out.println("\n Enter your Coordinants by entering two numbers, separated by a comma");
+        try {
+            while (!valid) { //while a valid coordinants has not been retrieved
+                //prompt for the player's coordinants
+                this.console.println("\n Enter your Coordinants by entering two numbers, separated by a comma");
 
-            value = keyboard.nextLine(); //get coordinants from keyboard
-            value = value.trim(); //trim off the exess blanks
-            int findComma = value.indexOf(",");
-            int numberThing = findComma + 1;
-            int numberThing2 = findComma + 2;
+                value = this.keyboard.readLine(); //get coordinants from keyboard
+                value = value.trim(); //trim off the exess blanks
+                int findComma = value.indexOf(",");
+                int numberThing = findComma + 1;
+                int numberThing2 = findComma + 2;
 
-            try {
+                try {
 
-                int x = Integer.parseInt(value.substring(0, findComma));
-                int y = Integer.parseInt(value.substring(numberThing, numberThing2));
-            } catch (NumberFormatException nf) {
-                System.out.println("****ERROR: You must enter two numbers, seperated by a comma!");
-            }
+                    int x = Integer.parseInt(value.substring(0, findComma));
+                    int y = Integer.parseInt(value.substring(numberThing, numberThing2));
+                } catch (NumberFormatException nf) {
+                    ErrorView.display(this.getClass().getName(), "****ERROR: You must enter two numbers, seperated by a comma!");
+                }
 
-            //if the coordinant is invalid (less than one character in length)
-            /*value.useDelimiter (", "); 
+                //if the coordinant is invalid (less than one character in length)
+                /*value.useDelimiter (", "); 
             int x = value.nextInt(); 
             int y = value.nextInt();*/
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "Invalid value - the value can not be blank.");
+                    continue; //repeat again
+                }
+                break;
             }
-            break;
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
         return value; //
     }
+
 }

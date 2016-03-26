@@ -24,7 +24,7 @@ public class SpellbookView extends View {
 
     @Override
     public void display() {
-        System.out.println(spellList());
+        this.console.println(spellList());
         char selection = ' ';
         do {
             String input = this.getInput(); //get user's selection
@@ -75,7 +75,7 @@ public class SpellbookView extends View {
             case 'E': //exit the menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
     }
@@ -99,12 +99,12 @@ public class SpellbookView extends View {
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
-                System.out.println("You cast " + chosenSpell.getName() + " and it does "
+                this.console.println("You cast " + chosenSpell.getName() + " and it does "
                         + spellEffect + " damage to your surroundings.");
             } catch (MagicControlException mce) {
-                System.out.println(mce.getMessage());
+                ErrorView.display(this.getClass().getName(), mce.getMessage());
             } catch (NumberFormatException nf) {
-                System.out.println("****ERROR: You must enter a number.");
+                ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
         return;
@@ -126,12 +126,12 @@ public class SpellbookView extends View {
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
-                System.out.println("You cast " + chosenSpell.getName() + " and it does "
+                this.console.println("You cast " + chosenSpell.getName() + " and it does "
                         + spellEffect + " damage to your surroundings.");
             } catch (MagicControlException mce) {
-                System.out.println(mce.getMessage());
+                ErrorView.display(this.getClass().getName(), mce.getMessage());
             } catch (NumberFormatException nf) {
-                System.out.println("****ERROR: You must enter a number.");
+                ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
         return;
@@ -153,12 +153,12 @@ public class SpellbookView extends View {
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
-                System.out.println("You cast " + chosenSpell.getName() + " and it does "
+                this.console.println("You cast " + chosenSpell.getName() + " and it does "
                         + spellEffect + " damage to your surroundings.");
             } catch (MagicControlException mce) {
-                System.out.println(mce.getMessage());
+                ErrorView.display(this.getClass().getName(), mce.getMessage());
             } catch (NumberFormatException nf) {
-                System.out.println("****ERROR: You must enter a number.");
+                ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
         return;
@@ -180,12 +180,12 @@ public class SpellbookView extends View {
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
 
-                System.out.println("You cast " + chosenSpell.getName() + " and it does "
+                this.console.println("You cast " + chosenSpell.getName() + " and it does "
                         + spellEffect + " damage to your surroundings.");
             } catch (MagicControlException mce) {
-                System.out.println(mce.getMessage());
+                ErrorView.display(this.getClass().getName(), mce.getMessage());
             } catch (NumberFormatException nf) {
-                System.out.println("****ERROR: You must enter a number.");
+                ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
         return;

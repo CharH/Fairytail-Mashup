@@ -5,6 +5,9 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.FairytaleMashup;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,8 @@ import java.util.Scanner;
 public abstract class View implements InterfaceView {
 
     protected String displayMessage;
+    protected final BufferedReader keyboard = FairytaleMashup.getInFile();
+    protected final PrintWriter console = FairytaleMashup.getOutFile();
 
     public View() {
         super();
@@ -38,48 +43,57 @@ public abstract class View implements InterfaceView {
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+
         String value = null;
 
         boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
+        try {
+            while (!valid) { //while a valid name has not been retrieved
+                //prompt for the player's name
+                this.console.println("\n" + this.displayMessage);
 
-            value = keyboard.nextLine(); //get name from keyboard
-            value = value.trim(); //trim off the exess blanks
-            value = value.toUpperCase(); //make upper case
+                value = this.keyboard.readLine(); //get name from keyboard
+                value = value.trim(); //trim off the exess blanks
+                value = value.toUpperCase(); //make upper case
 
-            //if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
+                //if the name is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "Invalid value - the value can not be blank.");
+                    continue; //repeat again
+                }
+                break;
+
             }
-            break;
-
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
         return value; //
     }
+
     public String getInput(String s) {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+
         String value = null;
 
         boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
-            System.out.println("\n" + s);
+        try {
+            while (!valid) { //while a valid name has not been retrieved
+                //prompt for the player's name
+                this.console.println("\n" + s);
 
-            value = keyboard.nextLine(); //get name from keyboard
-            value = value.trim(); //trim off the exess blanks
-            value = value.toUpperCase(); //make upper case
+                value = this.keyboard.readLine(); //get name from keyboard
+                value = value.trim(); //trim off the exess blanks
+                value = value.toUpperCase(); //make upper case
 
-            //if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
+                //if the name is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "Invalid value - the value can not be blank.");
+                    continue; //repeat again
+                }
+                break;
+
             }
-            break;
-
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
         return value; //
     }

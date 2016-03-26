@@ -72,27 +72,27 @@ public class StartProgramView {
         String value = "";
 
         boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a valid name has not been retrieved
-            //prompt for the player's name
+            while (!valid) { //while a valid name has not been retrieved
+                //prompt for the player's name
             System.out.println(this.promptMessage);
 
             value = keyboard.nextLine(); //get name from keyboard
-            value = value.trim(); //trim off the exess blanks
+                value = value.trim(); //trim off the exess blanks
 
-            //if the name is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
+                //if the name is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "Invalid value - the value can not be blank.");
+                    continue; //repeat again
+                }
+                valid = true; //set flag to end repetition
             }
-            valid = true; //set flag to end repetition
-        }
         return value; //
     }
 
     private boolean doAction(String playersName) {
 
         if (playersName.length() < 2) {
-            System.out.println("Invalid players name:"
+            ErrorView.display(this.getClass().getName(), "Invalid players name:"
                     + "Your name is too short! Why don't you try something longer?");
             return false;
         }
@@ -100,7 +100,7 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
 
         if (player == null) { //if unsuccessful
-            System.out.println("\n Error creating the player.");
+            ErrorView.display(this.getClass().getName(), "\n Error creating the player.");
             return false;
         }
         this.displayNextView(player);

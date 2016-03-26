@@ -46,20 +46,20 @@ public class GuidebookView extends View {
             case 'E': //exit the menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
 
-    private static void displayFairyTaleDescriptions() {
+    private void displayFairyTaleDescriptions() {
         Guidebook[] guidebook = GameControl.getSortedGuidebookList();
         //create header
-        System.out.println("\nFairytale Descriptions");
-        System.out.println("Title" + "\t" + "\t"  
+        this.console.println("\nFairytale Descriptions");
+        this.console.println("Title" + "\t" + "\t"  
                 + "Description");
         //display item info
         for (Guidebook Guidebook : guidebook) {
-            System.out.println(Guidebook.getFairytaleTitle() + "/t " + "\t" 
+            this.console.println(Guidebook.getFairytaleTitle() + "/t " + "\t" 
                     + Guidebook.getFairytaleDescription());       
         }
     }
@@ -67,11 +67,11 @@ public class GuidebookView extends View {
    
 
     private void displayCompletedChallenges() {
-        System.out.println("\n***display Completed Challenges stub function called.***");
+        this.console.println("\n***display Completed Challenges stub function called.***");
     }
 
     private void displayOpenChallenges() {
-        System.out.println("\n***display Open Challenges stub function called.***");
+        this.console.println("\n***display Open Challenges stub function called.***");
     }
 
     private void viewMap() {

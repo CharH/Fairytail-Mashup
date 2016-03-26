@@ -48,13 +48,13 @@ public class InventoryMenuView extends View {
             case 'E': //exit the menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
 
     private void displayPotionsPack() {
-        System.out.println("\n***display PotionsPack stub function called.***");
+        this.console.println("\n***display PotionsPack stub function called.***");
     }
 
     private void displaySpells() {
@@ -65,13 +65,13 @@ public class InventoryMenuView extends View {
     private void displayResources() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         //create header
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t"
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t"
                 + "Quantity" + "\t"
                 + "ReUsable");
         //display item info
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() + "\t        "
+            this.console.println(inventoryItem.getDescription() + "\t        "
                     + inventoryItem.getAmountAvailable() + "\t        "
                     + inventoryItem.isMultiUse());
         }
@@ -83,6 +83,6 @@ public class InventoryMenuView extends View {
 
         //display the weapons view
         weaponsView.displayWeaponsView();
-        //System.out.println("\n***display weapons stub function called.***");
+        
     }
 }

@@ -86,10 +86,7 @@ public class Scene {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.mapSymbol, other.mapSymbol);
     }
 
     @Override

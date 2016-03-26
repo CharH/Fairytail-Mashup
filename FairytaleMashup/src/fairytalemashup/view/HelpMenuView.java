@@ -44,25 +44,25 @@ public class HelpMenuView extends View {
             case 'E': //exit the menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
 
     private void displayPlayerQuest() {
-        System.out.println("\n***displayPlayerQuest stub function called.***");
+        this.console.println("\n***displayPlayerQuest stub function called.***");
     }
 
     private void displayHowToPlay() {
-        System.out.println("\n***displayHowToPlay stub function called.***");
+        this.console.println("\n***displayHowToPlay stub function called.***");
     }
 
     private void displayPotionInfo() {
-        System.out.println("\n***displayPotionInfo stub function called.***");
+        this.console.println("\n***displayPotionInfo stub function called.***");
     }
 
     private void displaySpellInfo() {
-        System.out.println("\n***displaySpellInfo stub function called.***");
+        this.console.println("\n***displaySpellInfo stub function called.***");
     }
 
 }

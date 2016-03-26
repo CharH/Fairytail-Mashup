@@ -46,7 +46,7 @@ public class MainMenuView extends View {
             case 'E': //exit the game
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
     }
@@ -56,7 +56,7 @@ public class MainMenuView extends View {
             GameControl.createNewGame(FairytaleMashup.getPlayer());
 
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            this.console.println(me.getMessage());
         }
 
         GameMenuView gameMenu = new GameMenuView();
@@ -65,7 +65,17 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("***startExistingGame function called");
+        this.console.println("\n\nEnter the file path of the game to be retrieved.");
+        String filePath = this.getInput();
+        try {
+            GameControl.getSavedGame(filePath);
+
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        this.console.println("Welcome back to the game " + FairytaleMashup.getCurrentGame().getPlayer().getName());
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -77,6 +87,17 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("***saveGame function called");
+        this.console.println("\n\nEnter a file path for where the game is to be saved to.");
+        String filePath = this.getInput();
+
+        try {
+            //save game to specified file
+            GameControl.saveGame(FairytaleMashup.getCurrentGame(), filePath);
+
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        this.console.println(FairytaleMashup.getCurrentGame().getPlayer().getName() + " has saved the game.");
+
     }
 }

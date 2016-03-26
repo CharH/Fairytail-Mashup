@@ -5,8 +5,11 @@
  */
 package fairytalemashup.view;
 
+import fairytalemashup.FairytaleMashup;
 import fairytalemashup.control.GameControl;
 import fairytalemashup.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -16,6 +19,8 @@ import java.util.Scanner;
 public class WeaponsView {
 
     private String promptMessage;
+    private final BufferedReader keyboard = FairytaleMashup.getInFile();
+    private final PrintWriter console = FairytaleMashup.getOutFile();
 
     public WeaponsView() {
         this.promptMessage = "\nEnter the type of weapon you wish to use: ";
@@ -37,37 +42,38 @@ public class WeaponsView {
     }
 
     private String getWeaponType() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+
         String value = "";
 
         boolean valid = false; //set flag to invalid value entered
-        while (!valid) { //while a weapon type has not been retrieved
-            //prompt for the weapon type
-            System.out.println(this.promptMessage);
+        try {
+            while (!valid) { //while a weapon type has not been retrieved
+                //prompt for the weapon type
+                this.console.println(this.promptMessage);
 
-            value = keyboard.nextLine(); //get name from keyboard
-            value = value.trim(); //trim off the exess blanks
+                value = this.keyboard.readLine(); //get name from keyboard
+                value = value.trim(); //trim off the exess blanks
 
-            //if the weapon type is invalid (less than one character in length)
-            if (value.length() < 1) {
-                System.out.println("Invalid value - the value can not be blank.");
-                continue; //repeat again
+                //if the weapon type is invalid (less than one character in length)
+                if (value.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "Invalid value - the value can not be blank.");
+                    continue; //repeat again
+                }
+                valid = true; //set flag to end repetition
             }
-            valid = true; //set flag to end repetition
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
         return value; //
     }
 
     private boolean doAction(String weaponType) {
-        /*if (weaponType != "Sword || ax || crossbow || dagger") { //if unsuccessful
-            System.out.println("\n Error: weapon type not valid.");
-            return false;
-        }*/
+
         if (weaponType.length() < 1 || weaponType == " ") {
-            System.out.println("Error: invlaid entry");
+            ErrorView.display(this.getClass().getName(), "Error: invlaid entry");
             return false;
         } else {
-            System.out.println(weaponType + " has been selected.");
+            this.console.println(weaponType + " has been selected.");
             return true;
         }
 

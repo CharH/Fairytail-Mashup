@@ -84,7 +84,7 @@ public class GameMenuView extends View {
             case 'Q': //exit to main menu
                 return;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
     }
@@ -99,11 +99,11 @@ public class GameMenuView extends View {
     private void movePlayer() {
         MapView mapView = new MapView();
         String coordinants = mapView.getInput();
-        System.out.println("\n Player attempted to move to space " + coordinants + " but failed.");
+        this.console.println("\n Player attempted to move to space " + coordinants + " but failed.");
     }
 
     private void exploreLocation() {
-        System.out.println("***exploreLocation function called");
+        this.console.println("***exploreLocation function called");
     }
 
     private void displayInventoryMenu() {
@@ -120,15 +120,15 @@ public class GameMenuView extends View {
     }
 
     private void talkToActor() {
-        System.out.println("***talkToActor function called");
+        this.console.println("***talkToActor function called");
     }
 
     private void gatherResources() {
-        System.out.println("***gatherResources function called");
+        this.console.println("***gatherResources function called");
     }
 
     private void displayPotionMenu() {
-        System.out.println("***displayPotionMenu function called");
+        this.console.println("***displayPotionMenu function called");
     }
 
     private void displaySpellMenu() {
