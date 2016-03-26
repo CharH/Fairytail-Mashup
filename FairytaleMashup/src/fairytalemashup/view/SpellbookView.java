@@ -22,14 +22,18 @@ public class SpellbookView extends View {
 
     public SpellbookView() {
 
-        this.displayMessage = "\nTo use a spell, type in the name or type E to exit this menu.";
+        this.displayMessage = spellList()
+                + "\nP - Print Menu"
+                + "\nE - Exit Menu"
+                + "\n------------------------------------------";
     }
 
     @Override
     public void display() {
-        this.console.println(spellList());
+        
         char selection = ' ';
         do {
+            this.console.println("\n***To cast a spell, type the name or first letter of the spell you wish to use.***");
             String input = this.getInput(); //get user's selection
             selection = input.charAt(0); //get first character of string
 
@@ -55,6 +59,7 @@ public class SpellbookView extends View {
                     + spell.getPiecesRequired() + ") \t - \t"
                     + spell.getDescription());
         }
+
         return spellList;
     }
 
@@ -64,41 +69,45 @@ public class SpellbookView extends View {
         //need this to be dynamic and adjust to available spells.
         switch (selection) {
             case 'F': {
-            try {
-                //view potions pack
-                this.castFireball();
-            } catch (IOException ex) {
-                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    //view potions pack
+                    this.castFireball();
+                } catch (IOException ex) {
+                    Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case 'H': {
-            try {
-                //view spellbook
-                this.castHydroblast();
-            } catch (IOException ex) {
-                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    //view spellbook
+                    this.castHydroblast();
+                } catch (IOException ex) {
+                    Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case 'S': {
-            try {
-                //display resources
-                this.castSoundbomb();
-            } catch (IOException ex) {
-                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    //display resources
+                    this.castSoundbomb();
+                } catch (IOException ex) {
+                    Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case 'I': {
-            try {
-                //view weapons
-                this.castInvisibility();
-            } catch (IOException ex) {
-                Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    //view weapons
+                    this.castInvisibility();
+                } catch (IOException ex) {
+                    Logger.getLogger(SpellbookView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
+            case 'P': {
+                this.printMenu();
+            }
+            break;
             case 'E': //exit the menu
                 return;
             default:
@@ -121,7 +130,6 @@ public class SpellbookView extends View {
                 while (valid == false) {
                     playerTone = Integer.parseInt(getInput(tonePrompt));
                     valid = MagicMakingControl.inputCheck(playerTone);
-                    continue;
                 }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
@@ -134,7 +142,6 @@ public class SpellbookView extends View {
                 ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
-        return;
     }
 
     private void castHydroblast() throws IOException {
@@ -148,7 +155,6 @@ public class SpellbookView extends View {
                 while (valid == false) {
                     playerTone = Integer.parseInt(getInput(tonePrompt));
                     valid = MagicMakingControl.inputCheck(playerTone);
-                    continue;
                 }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
@@ -161,7 +167,6 @@ public class SpellbookView extends View {
                 ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
-        return;
     }
 
     private void castSoundbomb() throws IOException {
@@ -175,7 +180,6 @@ public class SpellbookView extends View {
                 while (valid == false) {
                     playerTone = Integer.parseInt(getInput(tonePrompt));
                     valid = MagicMakingControl.inputCheck(playerTone);
-                    continue;
                 }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
@@ -188,7 +192,6 @@ public class SpellbookView extends View {
                 ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
-        return;
     }
 
     private void castInvisibility() throws IOException {
@@ -202,7 +205,6 @@ public class SpellbookView extends View {
                 while (valid == false) {
                     playerTone = Integer.parseInt(getInput(tonePrompt));
                     valid = MagicMakingControl.inputCheck(playerTone);
-                    continue;
                 }
                 int playerAction = Integer.parseInt(getInput(actionPrompt));
                 int spellEffect = MagicMakingControl.castSpell(playerAction, playerTone, chosenSpell);
@@ -215,7 +217,23 @@ public class SpellbookView extends View {
                 ErrorView.display(this.getClass().getName(), "****ERROR: You must enter a number.");
             }
         }
-        return;
+    }
+
+    private void printMenu() {
+        this.console.println("\n\nEnter a file path for where the menu is to be printed.");
+        String filePath = this.getInput();
+        boolean printTest = true;
+        try {
+            GameControl.printMenu(spellList(), filePath);
+
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "****ERROR: There has been an error printing the menu.");
+            printTest = false;
+        }
+        if (printTest != false) {
+            this.console.println("The menu has been printed to " + filePath);
+        }
+
     }
 
 }

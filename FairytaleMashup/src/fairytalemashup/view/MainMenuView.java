@@ -52,11 +52,13 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
+
         try {
             GameControl.createNewGame(FairytaleMashup.getPlayer());
 
         } catch (MapControlException me) {
             this.console.println(me.getMessage());
+
         }
 
         GameMenuView gameMenu = new GameMenuView();
@@ -67,13 +69,17 @@ public class MainMenuView extends View {
     private void startExistingGame() {
         this.console.println("\n\nEnter the file path of the game to be retrieved.");
         String filePath = this.getInput();
+        boolean valid = true;
         try {
             GameControl.getSavedGame(filePath);
 
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
+            valid = false;
         }
-        this.console.println("Welcome back to the game " + FairytaleMashup.getCurrentGame().getPlayer().getName());
+        if (valid != false) {
+            this.console.println("Welcome back to your game " + FairytaleMashup.getCurrentGame().getPlayer().getName());
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -89,15 +95,18 @@ public class MainMenuView extends View {
     private void saveGame() {
         this.console.println("\n\nEnter a file path for where the game is to be saved to.");
         String filePath = this.getInput();
-
+        boolean valid = true;
         try {
             //save game to specified file
             GameControl.saveGame(FairytaleMashup.getCurrentGame(), filePath);
 
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
+            valid = false;
         }
-        this.console.println(FairytaleMashup.getCurrentGame().getPlayer().getName() + " has saved the game.");
+        if (valid != false) {
+            this.console.println(FairytaleMashup.getCurrentGame().getPlayer().getName() + " has saved the game.");
+        }
 
     }
 }

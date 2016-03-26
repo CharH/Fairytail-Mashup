@@ -92,6 +92,15 @@ public class GameControl {
         FairytaleMashup.setCurrentGame(game);
     }
 
+    public static void printMenu(String menu, String filePath) throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(menu);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
     public enum Item {
         shrooms,
         herbs,
