@@ -20,6 +20,8 @@ public class Weapon extends InventoryItem implements Serializable {
     private String armour;
     private double protection;
     private String weaponArmed;
+    private int damages;
+    private String name;
 
     public Weapon() {
     }
@@ -62,6 +64,22 @@ public class Weapon extends InventoryItem implements Serializable {
 
     public void setWeaponArmed(String weaponArmed) {
         this.weaponArmed = weaponArmed;
+    }
+    
+        public int getDamages() {
+        return damages;
+    }
+
+    public void setDamages(int damages) {
+        this.damages = damages;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

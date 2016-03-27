@@ -89,7 +89,6 @@ public class InventoryMenuView extends View {
     private void displayWeapons() throws IOException {
         //create WeaponsView object
         WeaponsView weaponsView = new WeaponsView();
-
         //display the weapons view
         weaponsView.displayWeaponsView();
         

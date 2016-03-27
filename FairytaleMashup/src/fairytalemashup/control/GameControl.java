@@ -16,6 +16,7 @@ import fairytalemashup.model.Map;
 import fairytalemashup.model.Player;
 import fairytalemashup.model.Scene;
 import fairytalemashup.model.Spell;
+import fairytalemashup.model.Weapon;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -70,6 +71,10 @@ public class GameControl {
         return FairytaleMashup.getCurrentGame().getSpellbook();
     }
 
+    public static Weapon[] getSortedWeaponList() {
+        return FairytaleMashup.getCurrentGame().getWeapons();
+    }
+    
     public static void saveGame(Game currentGame, String filePath) throws GameControlException {
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
@@ -100,6 +105,8 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
+
+
 
     public enum Item {
         shrooms,
@@ -282,5 +289,63 @@ public class GameControl {
         spell[Spells.invisibility.ordinal()] = invisibility;
 
         return spell;
+    }
+    
+        public enum Weapons {
+        crossbow,
+        dagger,
+        ax,
+        mace,
+        club,
+        sword,
+        slingshot;
+    }
+
+    public static Weapon[] buildWeapons() {
+        Weapon[] weapon = new Weapon[7];
+
+        Weapon crossbow = new Weapon();
+        crossbow.setName("Crossbow");
+        crossbow.setDescription("Machanical Bow and arrow contraption.");
+        crossbow.setDamages(50);
+        weapon[Weapons.crossbow.ordinal()] = crossbow;
+
+        Weapon dagger = new Weapon();
+        dagger.setName("Dagger");
+        dagger.setDescription("small sharp knife that is easily consealed.");
+        dagger.setDamages(30);
+        weapon[Weapons.dagger.ordinal()] = dagger;
+
+        Weapon ax = new Weapon();
+        ax.setName("Ax");
+        ax.setDescription("Solid Wooden handle with Ax shaped blade at the top.");
+        ax.setDamages(75);
+        weapon[Weapons.ax.ordinal()] = ax;
+
+        Weapon mace = new Weapon();
+        mace.setName("Mace");
+        mace.setDescription("solid wooden handle with spiked ball at the top.");
+        mace.setDamages(60);
+        weapon[Weapons.mace.ordinal()] = mace;
+        
+        Weapon club = new Weapon();
+        club.setName("Club");
+        club.setDescription("Solid and heavey wooden tool.");
+        club.setDamages(30);
+        weapon[Weapons.club.ordinal()] = club;
+        
+        Weapon sword = new Weapon();
+        sword.setName("Sword");
+        sword.setDescription("Long heavey steel sword, very sharp.");
+        sword.setDamages(30);
+        weapon[Weapons.sword.ordinal()] = sword;
+        
+        Weapon slingshot = new Weapon();
+        slingshot.setName("Club");
+        slingshot.setDescription("Sling that can shoot off small pebbles and rocks.");
+        slingshot.setDamages(30);
+        weapon[Weapons.slingshot.ordinal()] = slingshot;
+
+        return weapon;
     }
 }

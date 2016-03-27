@@ -23,6 +23,7 @@ public class Game implements Serializable {
     private Guidebook[] guidebook;
     private Map map;
     private Spell[] spells;
+    private Weapon[] weapons;
 
     public Game() {
     }
@@ -116,5 +117,13 @@ public class Game implements Serializable {
     public Spell[] getSpellbook() {
         return spells;
     }
+    
+    public void setWeapons(Weapon[] weapons) {
+        this.weapons = weapons;
+    }
+
+    public Weapon[] getWeapons() {
+        return weapons;
+    }    
 
 }
