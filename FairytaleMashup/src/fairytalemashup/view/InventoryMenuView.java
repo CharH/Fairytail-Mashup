@@ -90,7 +90,7 @@ public class InventoryMenuView extends View {
         //create WeaponsView object
         WeaponsView weaponsView = new WeaponsView();
         //display the weapons view
-        weaponsView.displayWeaponsView();
+        weaponsView.display();
         
     }
 }

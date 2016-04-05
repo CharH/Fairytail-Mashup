@@ -52,6 +52,9 @@ public class GameControl {
 
         Spell[] spells = GameControl.buildSpellbook(); //create guidebook
         game.setSpellbook(spells); //save spellbook to game
+        
+        Weapon[] weapons = GameControl.buildWeapons();
+        game.setWeapons(weapons);
 
     }
 
