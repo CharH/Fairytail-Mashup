@@ -220,7 +220,7 @@ public class SpellbookView extends View {
     }
 
     private void printMenu() {
-        this.console.println("\n\nEnter a file path for where the menu is to be printed.");
+        this.console.println("\n\nEnter a file name for where the menu is to be printed.");
         String filePath = this.getInput();
         boolean printTest = true;
         try {
